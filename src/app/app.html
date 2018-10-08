@@ -1,0 +1,10 @@
+<ion-menu side="left"[content]="content"> 
+    <ion-content padding> 
+    <h4>MENU</h4>
+    <ion-item menuHelp detail-none>Help?</ion-item>
+    <ion-item menuClose detail-none>Close Menu</ion-item>
+    <ion-item menuLogout detail-push = "closeApplication();">Log out</ion-item>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

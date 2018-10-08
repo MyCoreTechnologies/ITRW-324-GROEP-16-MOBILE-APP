@@ -1,0 +1,19 @@
+
+page-home{
+
+    ion-content {
+        background: url(../assets/imgs/Char1.jpg) no-repeat center fixed;
+        background-size: auto;
+        &:before {
+            content: '';
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 100;
+            left: 0;
+            background-image: linear-gradient(to bottom right,#02362C,#003199);
+            opacity: .6; 
+        }
+      
+    }
+}
