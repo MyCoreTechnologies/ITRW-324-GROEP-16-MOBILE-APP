@@ -1,0 +1,80 @@
+<!--
+  Generated template for the AddbookPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="postAddBook(b)" #b="ngForm">
+    <ion-list>
+
+        <ion-item>
+          <ion-label>Book Name</ion-label>
+          <ion-input text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Edition</ion-label>
+          <ion-input text-right type="text" placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>ISBN 10</ion-label>
+          <ion-input text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_Number" name="book_isbn_10_Number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>ISBN 13</ion-label>
+          <ion-input text-right type="text" placeholder="13-Digits" [(ngModel)]="bookAdd.book_isbn_13_Number" name="book_isbn_13_Number"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Price</ion-label>
+          <ion-input text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+           <ion-label>Type</ion-label>
+           <ion-input text-right type="text" placeholder="E.g. advertisement OR request" [(ngModel)]="bookAdd.book_type" name="book_type"></ion-input>
+        </ion-item>
+
+        <!-- <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-select [(ngModel)]="bookAdd.book_type">
+                <ion-option value="advertisement">Advertisement</ion-option>
+                <ion-option value="request">Request</ion-option>
+              </ion-select>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label>Author</ion-label>
+          <ion-input text-right type="text" placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Subject Code</ion-label>
+          <ion-input text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-datetime displayFormat="YY MMM DD, h:mm A" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
+        </ion-item>
+
+    </ion-list>
+
+    <div padding>
+        <button ion-button color="primary" block round type="submit">Add</button>
+        <button ion-button block round (click) = "onGoToBackMyBooks()">Cancel</button>
+      </div>
+
+  </form>
+</ion-content>

@@ -1,37 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Login</ion-title>
+    <ion-title>
+      Login
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <!-- <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p> -->
+  <ion-item>
+    <button ion-button icon-only round large clear item-right>
+      <ion-icon name="help"></ion-icon>
+    </button>
+  </ion-item>
 
-  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+  <!-- <ion-navbar>
+    <ion-title>
+      <img alt="selit" height="150"   src="../../assets/imgs/SELIT.png" > 
+    </ion-title>
+  </ion-navbar> -->
 
+  <img style="width: 350px; height: 175px" src="../../assets/imgs/SELIT.png">
+
+<form (ngSubmit)="postSignIn(f)" #f="ngForm">
   <ion-list>
 
-      <ion-item>
-        <ion-label floating>Student Number</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-    
-    </ion-list>
+    <ion-item>
+      <ion-label floating>Student Number</ion-label>
+      <ion-input type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
+    </ion-item>
   
-    <div padding>
-      <button ion-button color="primary" block>Sign In</button>
-      <button ion-button block color="primary" (click)="doHelp()">Exit</button>
-    </div>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="loginData.password" name="password"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block round type="submit">Sign In</button>
+  </div>
+</form>
+
+  <div padding>
+    <button ion-button color="primary" block round>Exit</button>
+    <!-- back door -->
+    <button ion-button (click) = "onTempList()">back door</button>
+  </div>
 
 </ion-content>
