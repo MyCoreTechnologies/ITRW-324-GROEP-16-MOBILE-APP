@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the HelpPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-help',
-  templateUrl: 'help.html',
+  templateUrl: 'help.html'
 })
 export class HelpPage {
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+    // If we navigated to this page, we will have an item available as a nav param
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HelpPage');
-  }
+    doHelp() {
+      const alert = this.alertCtrl.create({
+        title: 'Cant sign in?',
+        subTitle: 'To create an account, please register on our website',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
 
 }

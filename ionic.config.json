@@ -1,5 +1,7 @@
 {
-  "name": "Toets",
-  "integrations": {},
+  "name": "Selit",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
