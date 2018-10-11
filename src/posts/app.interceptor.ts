@@ -11,13 +11,12 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class InterceptorService {
 
-  constructor(public subService: SubmitService) {
+  constructor(public submitService: SubmitService) {
   }
-
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
     request = request.clone({
       setHeaders: {
-    //    authentication: '${this.pgpd.getToken()}'
+   //   authentication: '${this.submitService.getToken()}'
       }
     });
     return next.handle(request);

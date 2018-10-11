@@ -19,7 +19,7 @@
         <ion-icon name="refresh">
         </ion-icon>
     </button>
-    <button ion-button icon-only round large clear item-right>
+    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
           <ion-icon name="help"></ion-icon>
     </button>
 </ion-item>
@@ -29,8 +29,8 @@
 
 <ion-footer>
   <ion-navbar>
-    <button ion-button block item-left (click) = "onToGoAdd()">Add</button>
-    <button ion-button block item-right (click) = "showRemovePrompt()">Remove</button>
-    <button ion-button block item-bottom item-left (click) = "onGoToBackList()">Back</button>
+    <button ion-button block (click) = "onToGoAdd()">Add</button>
+    <button ion-button block (click) = "showRemovePrompt()">Remove</button>
+    <button ion-button block (click) = "onGoToBackList()">Back</button>
   </ion-navbar>
 </ion-footer>

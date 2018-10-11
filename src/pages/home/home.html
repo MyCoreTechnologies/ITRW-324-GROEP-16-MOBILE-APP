@@ -6,10 +6,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content id="homeback" padding>
 
   <ion-item>
-    <button ion-button icon-only round large clear item-right>
+    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
       <ion-icon name="help"></ion-icon>
     </button>
   </ion-item>
@@ -25,7 +25,7 @@
 <form (ngSubmit)="postSignIn(f)" #f="ngForm">
   <ion-list>
 
-    <ion-item>
+    <ion-item id="Login">
       <ion-label floating>Student Number</ion-label>
       <ion-input type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
     </ion-item>

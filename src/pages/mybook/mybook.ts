@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddbookPage } from '../addbook/addbook';
 import { AlertController } from 'ionic-angular';
 
+
 /**
  * Generated class for the MybookPage page.
  *
@@ -59,6 +60,16 @@ export class MybookPage {
   onGoToBackList(){
     this.navCtrl.push(ListPage);
   }
+
+  showHelpAlert() {
+    const helpAlert = this.alertCtrl.create({
+      title: 'Help!',
+      subTitle: `This is a list of all your books, you can add more or remove books.`,
+      buttons: ['OK']
+    });
+    helpAlert.present();
+  }
+
 }
 
  

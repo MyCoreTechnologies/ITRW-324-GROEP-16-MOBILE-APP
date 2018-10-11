@@ -9,5 +9,23 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <button ion-button icon-only round large clear item-right>
+        <ion-icon name="refresh">
+        </ion-icon>
+    </button>
+    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
+          <ion-icon name="help"></ion-icon>
+    </button>
+  </ion-item>
+
 </ion-content>
+
+<ion-footer>
+    <ion-navbar>
+      <button ion-button block (click) = "showFilter()">Filter</button>
+      <button ion-button block>Remove Filter</button>
+      <button ion-button block (click) = "onGoToBackList()">Back</button>
+    </ion-navbar>
+  </ion-footer>
 
