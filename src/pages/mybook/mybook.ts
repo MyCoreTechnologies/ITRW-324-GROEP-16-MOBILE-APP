@@ -3,14 +3,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddbookPage } from '../addbook/addbook';
 import { AlertController } from 'ionic-angular';
-
-
-/**
- * Generated class for the MybookPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NgForm } from '@angular/forms';
+import { SubmitService } from '../../posts/app.service';
 
 @IonicPage()
 @Component({
@@ -19,7 +13,7 @@ import { AlertController } from 'ionic-angular';
 })
 export class MybookPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private submitService: SubmitService) {
   }
 
   ionViewDidLoad() {
@@ -50,13 +44,18 @@ export class MybookPage {
           text: 'Remove',
           handler: data => {
             console.log('Removed clicked');
+            this.postRemoveBook(data);
           }
         }
       ]
     });
     prompt.present();
   }
-  
+
+  onGoToBackMyBooks(){
+     this.navCtrl.pop();
+  }
+
   onGoToBackList(){
     this.navCtrl.push(ListPage);
   }
@@ -69,6 +68,15 @@ export class MybookPage {
     });
     helpAlert.present();
   }
+
+  postRemoveBook(data) {
+    console.log(data);
+    this.submitService.postBookData(data)
+    .subscribe(response => {
+      console.log(response);
+    },
+      (error) => console.log('Problem accuired during book remove.'));
+    } 
 
 }
 

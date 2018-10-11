@@ -6,6 +6,7 @@ import { ListPage } from '../list/list';
 import { NgForm } from '@angular/forms';
 
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

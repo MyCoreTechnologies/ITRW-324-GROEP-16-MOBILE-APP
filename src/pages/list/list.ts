@@ -39,4 +39,12 @@ export class ListPage {
     },
     (error) => console.log('Problem accuired during book retrieval.'));
   }
+
+  getBookList(){
+    this.submitService.getBookListData()
+    .subscribe(response => {
+      console.log(response);
+    },
+    (error) => console.log('Problem accuired during book retrieval.'));
+  }
 }

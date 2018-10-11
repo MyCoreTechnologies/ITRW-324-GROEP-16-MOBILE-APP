@@ -24,8 +24,9 @@
 
 <form (ngSubmit)="postSignIn(f)" #f="ngForm">
   <ion-list>
-
-    <ion-item id="Login">
+<!-- id="Login" -->
+    <!-- <ion-item style = "background-color: black; opacity: 0.5; color: white"> -->
+    <ion-item>
       <ion-label floating>Student Number</ion-label>
       <ion-input type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
     </ion-item>
