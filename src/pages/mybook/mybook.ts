@@ -52,12 +52,8 @@ export class MybookPage {
     prompt.present();
   }
 
-  onGoToBackMyBooks(){
+  onGoToMenu(){
      this.navCtrl.pop();
-  }
-
-  onGoToBackList(){
-    this.navCtrl.push(ListPage);
   }
 
   showHelpAlert() {
@@ -71,12 +67,20 @@ export class MybookPage {
 
   postRemoveBook(data) {
     console.log(data);
-    this.submitService.postBookData(data)
+    this.submitService.postDeleteBookData(data)
     .subscribe(response => {
       console.log(response);
     },
       (error) => console.log('Problem accuired during book remove.'));
     } 
+
+  getBookList(){
+    this.submitService.getBookListData()
+    .subscribe(response => {
+      console.log(response);
+    },
+    (error) => console.log('Problem accuired during book retrieval.'));
+  }  
 
 }
 

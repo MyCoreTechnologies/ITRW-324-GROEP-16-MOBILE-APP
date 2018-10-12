@@ -15,7 +15,7 @@
 
 <ion-content padding>
 <ion-item>
-    <button ion-button icon-only round large clear item-right>
+    <button ion-button icon-only round large clear item-right (click) = "getBookList()">
         <ion-icon name="refresh">
         </ion-icon>
     </button>
@@ -31,6 +31,6 @@
   <ion-navbar>
     <button ion-button block (click) = "onToGoAdd()">Add</button>
     <button ion-button block (click) = "showRemovePrompt()">Remove</button>
-    <button ion-button block (click) = "onGoToBackList()">Back</button>
+    <button ion-button block (click) = "onGoToMenu()">Back</button>
   </ion-navbar>
 </ion-footer>

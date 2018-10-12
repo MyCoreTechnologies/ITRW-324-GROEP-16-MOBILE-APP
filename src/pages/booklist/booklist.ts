@@ -2,13 +2,12 @@ import { ListPage } from './../list/list';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { SubmitService } from '../../posts/app.service';
+import { HttpClient } from '@angular/common/http';
 
-/**
- * Generated class for the BooklistPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+export interface Config {
+	//bookList: string;
+}
 
 @IonicPage()
 @Component({
@@ -19,16 +18,39 @@ export class BooklistPage {
 
   filterRadioOpen: boolean;
   filterRadioResult;
+  bookList: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-  }
+  adData = `{"book_type": "Advertisement"}`;
+  reqData = `{"book_type": "Request"}`;
+  // public config : Config;
+  // public columns : any;
+  // public rows : any;
 
-  ionViewDidLoad() {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public alertCtrl: AlertController, 
+    private submitService: SubmitService,
+    private _HTTP   	: HttpClient) {
+      this.getBookList();
+
+      // this.columns = [
+      //   { Name: 'book_Name'},
+      //   { Type: 'book_type'},
+      //   { Price: 'book_price'}
+      // ];
+    }
+
+  ionViewDidLoad() : void{
+    // this.submitService.getBookListData()
+    //   .subscribe((data) =>
+    //   {
+    //      this.rows = data.bookList;
+    //   });
     console.log('ionViewDidLoad BooklistPage');
   }
 
-  onGoToBackList(){
-    this.navCtrl.push(ListPage);
+  onGoToMenu(){
+    this.navCtrl.pop();
   }
 
   showFilter(){
@@ -64,7 +86,7 @@ export class BooklistPage {
         this.filterRadioResult = filterData;
 
         if(filterData === 'type'){
-          this.showFilterTypePrompt();
+          this.showFilterType();
         } else if(filterData === 'code') {
           this.showFilterSubjectPrompt();
         } else if(filterData === 'price') {
@@ -78,31 +100,29 @@ export class BooklistPage {
     });
   }
 
-  showFilterTypePrompt(){
-    const filterTprompt = this.alertCtrl.create({
-          title: 'Type Filter',
-          message: "Enter the TYPE of the book that you want to filter.",
-          inputs: [{
-          name: 'book_type',
-          placeholder: 'E.g. advertisement OR request'
-        },],
-      buttons: 
-      [
-        {
-          text: 'Cancel',
+  showFilterType(){
+    const confirmType = this.alertCtrl.create({
+      title: "Type Filter",
+      message: "Select the TYPE of the book that you want to filter.",
+      buttons: [
+      {
+        text: "Advertisements",
           handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Apply',
+            console.log('Advertisement clicked');
+            this.postFilterTypeBook(this.adData);
+      }
+      },
+      {
+        text: 'Requests',
           handler: data => {
-            console.log('Apply clicked');
-          }
-        }
+            console.log('Request clicked');
+            this.postFilterTypeBook(this.reqData);
+      }
+      }
       ]
     });
-    filterTprompt.present();
+
+    confirmType.present();
   }
 
   showFilterSubjectPrompt(){
@@ -125,6 +145,7 @@ export class BooklistPage {
           text: 'Apply',
           handler: data => {
             console.log('Apply clicked');
+            this.postFilterSubjectBook(data);
           }
         }
       ]
@@ -152,6 +173,7 @@ export class BooklistPage {
           text: 'Apply',
           handler: data => {
             console.log('Apply clicked');
+            this.postFilterPriceBook(data);
           }
         }
       ]
@@ -168,4 +190,46 @@ export class BooklistPage {
     helpAlert.present();
   }
 
+  postFilterTypeBook(data) {
+    console.log(data);
+    this.submitService.postFilterTypeData(data)
+    .subscribe(response => {
+      console.log(response);
+//      typeFilterBooks : [response];
+    },
+      (error) => console.log('Problem accuired during type filter.'));
+    } 
+    
+  postFilterSubjectBook(data) {
+    console.log(data);
+    this.submitService.postFilterSubjectData(data)
+    .subscribe(response => {
+      console.log(response);
+    },
+      (error) => console.log('Problem accuired during subject filter.'));
+    } 
+
+  postFilterPriceBook(data) {
+    console.log(data);
+    this.submitService.postFilterPriceData(data)
+    .subscribe(response => {
+      console.log(response);
+    },
+      (error) => console.log('Problem accuired during price fiter.'));
+    }
+
+    getBookList(){
+      this.submitService.getBookListData()
+      .subscribe(
+      (response) => {
+        console.log(response);
+        // let count = 0;
+        this.bookList.push(response);
+        console.log(this.bookList);
+      },
+        // this.bookpage.getBooks();,
+      (error) => console.log('Problem accuired during book retrieval.'));
+    }
+
 }
+

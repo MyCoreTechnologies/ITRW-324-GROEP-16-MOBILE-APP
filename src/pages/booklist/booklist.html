@@ -19,13 +19,56 @@
     </button>
   </ion-item>
 
+  <!-- <ion-item>
+  <table> {{ bookList }} </table>
+  <p> {{ bookList }} </p>
+  </ion-item> -->
+
+
+  <!-- <ion-item *ngFor="let b of bookList">
+      {{b | json }}
+  </ion-icon> -->
+
+  <!-- <ion-item *ngFor = "let b of booksList">
+    <p *ngFor= "let name of b"></p>
+    <p>{{ name }}</p>
+    <p>{{ b }}</p>
+  </ion-item> -->
+
+
+  <!-- <div *ngFor="let b of bookList">
+
+      <ion-item>
+        <h2>Name : {{b}}</h2>
+      </ion-item>
+    </div> -->
+
+  <!-- <ion-option *ngFor="let b of bookList" value="{{ b.bookList }}">{{ b.bookList }}
+    <p>{{ b | json}}</p>
+  </ion-option> -->
+    <!-- <p *ngFor="let b of bookList">{{ b }}</p> -->
+  
+
+  <!-- <div>
+    <ngx-datatable
+       [sortType]="'multi'"
+       [headerHeight]="50"
+       [footerHeight]="50"
+       [rowHeight]="50"
+       [rows]="rows"
+       [columns]="columns"
+       [columnMode]="'force'"
+       [limit]="10">
+     </ngx-datatable>
+  </div> -->
+
 </ion-content>
 
 <ion-footer>
     <ion-navbar>
       <button ion-button block (click) = "showFilter()">Filter</button>
-      <button ion-button block>Remove Filter</button>
-      <button ion-button block (click) = "onGoToBackList()">Back</button>
+      <button ion-button block (click) = "getBookList()">Remove Filter</button>
+      <button ion-button block (click) = "onGoToMenu()">Back</button>
     </ion-navbar>
   </ion-footer>
 

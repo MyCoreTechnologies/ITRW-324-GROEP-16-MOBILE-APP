@@ -11,9 +11,11 @@ import { SubmitService } from '../../posts/app.service';
   templateUrl: 'list.html',
 })
 export class ListPage {
+  bookList: Array<{}> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private submitService: SubmitService) {
-  }
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private submitService: SubmitService) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPage');
@@ -28,7 +30,7 @@ export class ListPage {
   }
 
   onGoToLogOut(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.popToRoot();
     sessionStorage.clear();
   }
 
@@ -40,11 +42,16 @@ export class ListPage {
     (error) => console.log('Problem accuired during book retrieval.'));
   }
 
-  getBookList(){
-    this.submitService.getBookListData()
-    .subscribe(response => {
-      console.log(response);
-    },
-    (error) => console.log('Problem accuired during book retrieval.'));
-  }
+  // getBookList(){
+  //   this.submitService.getBookListData()
+  //   .subscribe(
+  //   (response) => {
+  //     // console.log(response);
+  //     // let count = 0;
+  //     this.bookList.push(response);
+  //     console.log(this.bookList);
+  //   },
+  //     // this.bookpage.getBooks();,
+  //   (error) => console.log('Problem accuired during book retrieval.'));
+  // }
 }

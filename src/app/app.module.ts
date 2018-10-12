@@ -7,6 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -26,6 +27,7 @@ import { BooklistPage } from './../pages/booklist/booklist';
   ],
   imports: [
     BrowserModule,
+    NgxDatatableModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],

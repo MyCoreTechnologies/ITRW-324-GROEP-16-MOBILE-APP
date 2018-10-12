@@ -19,62 +19,58 @@
 
         <ion-item>
           <ion-label>Book Name</ion-label>
-          <ion-input text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
+          <ion-input maxlength = "60" text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label>Edition</ion-label>
-          <ion-input text-right type="text" placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
+          <ion-input maxlength = "40" text-right type="text" placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
         </ion-item>
         
         <ion-item>
           <ion-label>ISBN 10</ion-label>
-          <ion-input text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_Number" name="book_isbn_10_Number"></ion-input>
+          <ion-input maxlength = "10" text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label>ISBN 13</ion-label>
-          <ion-input text-right type="text" placeholder="13-Digits" [(ngModel)]="bookAdd.book_isbn_13_Number" name="book_isbn_13_Number"></ion-input>
+          <ion-input maxlength = "13" text-right type="text" placeholder="13-Digits" [(ngModel)]="bookAdd.book_isbn_13_number" name="book_isbn_13_number"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label>Price</ion-label>
-          <ion-input text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
-        </ion-item>
-        
-        <ion-item>
-           <ion-label>Type</ion-label>
-           <ion-input text-right type="text" placeholder="E.g. advertisement OR request" [(ngModel)]="bookAdd.book_type" name="book_type"></ion-input>
+          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
         </ion-item>
 
-        <!-- <ion-item>
+        <ion-item>
             <ion-label>Type</ion-label>
-            <ion-select [(ngModel)]="bookAdd.book_type">
-                <ion-option value="advertisement">Advertisement</ion-option>
-                <ion-option value="request">Request</ion-option>
+            <ion-select [(ngModel)]="bookAdd.book_type" name="book_type">
+                <ion-option label="Advertisement">Advertisement</ion-option>
+                <ion-option label="Request">Request</ion-option>
               </ion-select>
-        </ion-item> -->
+        </ion-item>
 
         <ion-item>
           <ion-label>Author</ion-label>
-          <ion-input text-right type="text" placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
+          <ion-input maxlength = "40" text-right type="text" placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label>Subject Code</ion-label>
-          <ion-input text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
+          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-datetime displayFormat="YY MMM DD, h:mm A" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
+          <ion-datetime displayFormat="YYYY MM DD" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
         </ion-item>
 
     </ion-list>
 
     <div padding>
-        <button ion-button color="primary" block round type="submit">Add</button>
-        <button ion-button block round (click) = "onGoToBackMyBooks()">Cancel</button>
+        <button ion-button color="primary" block round type="submit" (click) = "onGoToBackMyBooks()">Add</button>
       </div>
-
   </form>
+
+  <button ion-button block round (click) = "onGoToBackMyBooks()">Cancel</button>
+  
 </ion-content>
