@@ -1,52 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar color = "dark"> 
+      <ion-title icon-start>
+        <ion-icon name="log-in"></ion-icon>
+        Login
+      </ion-title>  
+  </ion-toolbar>
 </ion-header>
 
-<ion-content id="homeback" padding>
-
-  <ion-item>
-    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
-      <ion-icon name="help"></ion-icon>
-    </button>
-  </ion-item>
-
-  <!-- <ion-navbar>
-    <ion-title>
-      <img alt="selit" height="150"   src="../../assets/imgs/SELIT.png" > 
-    </ion-title>
-  </ion-navbar> -->
-
-  <img style="width: 350px; height: 175px" src="../../assets/imgs/SELIT.png">
-
-<form (ngSubmit)="postSignIn(f)" #f="ngForm">
-  <ion-list>
-<!-- id="Login" -->
-    <!-- <ion-item style = "background-color: black; opacity: 0.5; color: white"> -->
-    <ion-item>
-      <ion-label floating>Student Number</ion-label>
-      <ion-input type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
+<ion-content padding class = "mainBack-image">
+  <ion-list id = "mainGrouped">
+    <ion-item no-lines id= "mainGroupedClear">
+      <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
+        <ion-icon name="help"></ion-icon>
+      </button>
     </ion-item>
+
+    <img style="width: 350px; height: 175px" src="../../assets/imgs/SELIT.png">
+
+    <form (ngSubmit)="postSignIn(f)" #f="ngForm">
+      <ion-list>
+        <ion-item id= "mainGroupedClear">
+          <ion-label floating color = "light">Student Number</ion-label>
+          <ion-input color = "light" type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
+        </ion-item>
   
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="loginData.password" name="password"></ion-input>
-    </ion-item>
+        <ion-item id= "mainGroupedClear">
+          <ion-label floating color = "light" >Password</ion-label>
+          <ion-input color = "light" type="password" [(ngModel)]="loginData.password" name="password"></ion-input>
+        </ion-item>
   
+      </ion-list>
+
+      <div padding>
+        <button ion-button color="light" block round outline type="submit">Sign In</button>
+      </div>
+    </form>
+      <div padding>
+        <button ion-button color="light" block round outline>Exit</button>
+      </div>
+
   </ion-list>
-
-  <div padding>
-    <button ion-button color="primary" block round type="submit">Sign In</button>
-  </div>
-</form>
-
-  <div padding>
-    <button ion-button color="primary" block round>Exit</button>
-    <!-- back door -->
-    <button ion-button (click) = "onTempList()">back door</button>
-  </div>
 
 </ion-content>

@@ -1,30 +1,29 @@
+.md,.ios,.wp{
 page-home {
-    // .mainBack-image {
-    //     background-image: url('../../assets/imgs/Background.png');
-    //     background-repeat: no-repeat;
-    //     background-position: center;
-    //     background-size: contain;
-    // }
-
-    //  ion-content{
-    //      background: radial-gradient(rgb(255, 255, 255) 0%, rgb(0, 0, 0) 100%) !important;
-    //  }
-
-    //  ion-content{
-    //     background: src = '../../assets/imgs/Background.png' !important;
-    // }
-
-    // .bg{
-    //     background: linear-gradient(to bottom, rgb(43, 43, 43) 0%, white 100%)
-    // }
+    .mainBack-image {
+        background-image: url('../../assets/imgs/Background.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: large;
+    }
     
-    // #homeback {
-    //     background-image: url(../../assets/imgs/Background.jpg);
-    // }
-    
-    #login{
-        background-color: black;
-        opacity: 0.5;
+    .customAlert {
+        background: transparentize($color: #000000, $amount: 0.1) !important;
+        color: red !important;
+        $alert-md-background-color: #F35E5D;
+        $alert-ios-background: #F35E5D;
+    }
+
+    #barTrans{
+        background: transparentize($color: #000000, $amount: 0.1);
+    }
+
+    #mainGrouped{
+        background: transparentize($color: #000000, $amount: 0.4);
+    }
+
+    #mainGroupedClear{
+        background: transparent;
     }
 }
-
+}

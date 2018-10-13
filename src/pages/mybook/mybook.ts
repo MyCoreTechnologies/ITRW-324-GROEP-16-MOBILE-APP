@@ -11,7 +11,33 @@ import { SubmitService } from '../../posts/app.service';
   selector: 'page-mybook',
   templateUrl: 'mybook.html',
 })
+
+// class myBook{
+//   Book_Number: number;
+//   Book_Name: string;
+//   Book_Edition: string;
+//   Book_Price: number;
+//   Book_type: string;
+//   Author_Name: string;
+//   Subject_Code: string;
+// }
+
 export class MybookPage {
+  // data: any[];
+
+  // data;
+  // bookNumber;
+  // bookName;
+  // edition;
+  // price;
+  // type;
+  // author;
+  // subject;
+  // arr = 0;
+  // tableLabel;
+  // tableData = [];  
+
+  // books: myBook[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private submitService: SubmitService) {
   }
@@ -75,9 +101,31 @@ export class MybookPage {
     } 
 
   getBookList(){
-    this.submitService.getBookListData()
+    this.submitService.getMyBookData()
     .subscribe(response => {
       console.log(response);
+
+     // this.books = response[0];
+
+      // this.tableLabel = response[0].labels;
+
+      // let arr = 0;
+      // while(response[arr] != null){
+      //   this.tableData.push(response[arr]);
+      //   arr++;
+      // }
+
+      // console.log(this.tableData);
+      // console.log(this.tableLabel);
+
+      // this.data = response;
+      // this.bookNumber = this.data[this.arr].Book_Number;
+      // this.bookName = this.data[this.arr].Book_Name;
+      // this.edition = this.data[this.arr].Book_Edition;
+      // this.type = this.data[this.arr].Book_Type;
+      // this.author = this.data[this.arr].Author_Name;
+      // this.subject = this.data[this.arr].Subject_Code;
+
     },
     (error) => console.log('Problem accuired during book retrieval.'));
   }  

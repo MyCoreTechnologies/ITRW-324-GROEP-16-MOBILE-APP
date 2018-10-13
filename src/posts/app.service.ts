@@ -23,7 +23,7 @@ export class SubmitService {
   }
 
   getMyBookData() {
-    return this.httpclient.get('http://192.168.8.103:3000/book/myBook');
+    return this.httpclient.get('http://192.168.8.103:3000/book/myBook/app');
   }
 
   getBookListData() {

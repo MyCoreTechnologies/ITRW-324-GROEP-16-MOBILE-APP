@@ -1,21 +1,31 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar color = "dark">
     <ion-title>Home</ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
-    <button ion-button block full large (click) = "onGoToMyBooks(); getMyBookList()">My Book</button>
-    <button ion-button block full large (click) = "onGoToBookList()">Book List</button>
+<ion-content class = "mainBack-image">
+  <ion-item id= "mainGrouped" no-lines>
+    <div class = "middle">
+      <button ion-button color="light" large block round outline icon-start (click) = "onGoToMyBooks(); getMyBookList()">
+        <ion-icon name="book"></ion-icon>
+      My Book </button>
+    </div>
+    <div>
+      <button ion-button color="light" large block round outline icon-start (click) = "onGoToBookList()">
+        <ion-icon name="book"></ion-icon>
+      Book List</button>
+    </div>
+  </ion-item>
 
 </ion-content>
 
 <ion-footer>
-    <ion-navbar>
-        <button ion-button block full large (click) = "onGoToLogOut()">Log Out</button>
-    </ion-navbar>
-  </ion-footer>
+  <ion-toolbar color = "dark" background = "transparentize($color: #000000, $amount: 0.4)">
+    <button ion-button color="light" block round outline large icon-start (click) = "onGoToLogOut()">
+      <ion-icon name="log-out"></ion-icon>
+    Log Out</button>
+  </ion-toolbar>
+</ion-footer>
 

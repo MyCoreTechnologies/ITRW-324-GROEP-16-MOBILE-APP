@@ -1,21 +1,15 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar color = "dark">
     <ion-title>Book List</ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class = "mainBack-image">
 
-  <ion-item>
-    <button ion-button icon-only round large clear item-right>
-        <ion-icon name="refresh">
-        </ion-icon>
-    </button>
-    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
-          <ion-icon name="help"></ion-icon>
+  <ion-item id= "mainGrouped" no-lines>
+    <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
+      <ion-icon name="help"></ion-icon>
     </button>
   </ion-item>
 
@@ -43,9 +37,10 @@
       </ion-item>
     </div> -->
 
-  <!-- <ion-option *ngFor="let b of bookList" value="{{ b.bookList }}">{{ b.bookList }}
+  <ion-option *ngFor="let b of bookList" value="{{ b.bookList }}">{{ b.bookList }}
     <p>{{ b | json}}</p>
-  </ion-option> -->
+  </ion-option>
+  
     <!-- <p *ngFor="let b of bookList">{{ b }}</p> -->
   
 
@@ -65,10 +60,21 @@
 </ion-content>
 
 <ion-footer>
-    <ion-navbar>
-      <button ion-button block (click) = "showFilter()">Filter</button>
-      <button ion-button block (click) = "getBookList()">Remove Filter</button>
-      <button ion-button block (click) = "onGoToMenu()">Back</button>
-    </ion-navbar>
-  </ion-footer>
+  <ion-toolbar color = "dark">
+    <div class = "row">
+      <div class = "col">
+        <button ion-button color="light" block round outline icon-start (click) = "showFilter()">
+          <ion-icon name="md-funnel"></ion-icon> 
+        Filter</button></div>
+      <div class = "col">
+        <button ion-button color="light" block round outline icon-start (click) = "getBookList()">
+          <ion-icon name="ios-infinite-outline"></ion-icon> 
+        Remove Filter</button></div>
+      </div>
+      <button ion-button color="light" block round outline icon-start (click) = "onGoToMenu()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      Back</button>
+  </ion-toolbar>
+</ion-footer>
 

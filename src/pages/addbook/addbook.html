@@ -1,76 +1,75 @@
-<!--
-  Generated template for the AddbookPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar color = "dark">
     <ion-title>Add</ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
-
-<ion-content padding>
+<ion-content padding class = "mainBack-image">
+  <ion-list id = "mainGrouped">
     <form (ngSubmit)="postAddBook(b)" #b="ngForm">
-    <ion-list>
+      <ion-list>
 
-        <ion-item>
-          <ion-label>Book Name</ion-label>
-          <ion-input maxlength = "60" text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Book Name</ion-label>
+          <ion-input class = "text-input" maxlength = "60" text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
         </ion-item>
       
-        <ion-item>
-          <ion-label>Edition</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Edition</ion-label>
           <ion-input maxlength = "40" text-right type="text" placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
         </ion-item>
         
-        <ion-item>
-          <ion-label>ISBN 10</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">ISBN 10</ion-label>
           <ion-input maxlength = "10" text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label>ISBN 13</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">ISBN 13</ion-label>
           <ion-input maxlength = "13" text-right type="text" placeholder="13-Digits" [(ngModel)]="bookAdd.book_isbn_13_number" name="book_isbn_13_number"></ion-input>
         </ion-item>
       
-        <ion-item>
-          <ion-label>Price</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Price</ion-label>
           <ion-input maxlength = "7" text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
         </ion-item>
 
-        <ion-item>
-            <ion-label>Type</ion-label>
-            <ion-select [(ngModel)]="bookAdd.book_type" name="book_type">
-                <ion-option label="Advertisement">Advertisement</ion-option>
-                <ion-option label="Request">Request</ion-option>
-              </ion-select>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Type</ion-label>
+          <ion-select [(ngModel)]="bookAdd.book_type" name="book_type">
+            <ion-option label="Advertisement">Advertisement</ion-option>
+            <ion-option label="Request">Request</ion-option>
+          </ion-select>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Author</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Author</ion-label>
           <ion-input maxlength = "40" text-right type="text" placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
         </ion-item>
       
-        <ion-item>
-          <ion-label>Subject Code</ion-label>
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Subject Code</ion-label>
           <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item id = "mainGroupedClear">
           <ion-datetime displayFormat="YYYY MM DD" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
         </ion-item>
 
-    </ion-list>
+      </ion-list>
+
+      <div padding>
+        <button ion-button color="light" block round outline type="submit" icon-start (click) = "onGoToBackMyBooks()">
+          <ion-icon name="ios-create-outline"></ion-icon> 
+        Add</button>
+      </div>
+
+    </form>
 
     <div padding>
-        <button ion-button color="primary" block round type="submit" (click) = "onGoToBackMyBooks()">Add</button>
-      </div>
-  </form>
-
-  <button ion-button block round (click) = "onGoToBackMyBooks()">Cancel</button>
-  
+      <button ion-button color="light" block round outline icon-start (click) = "onGoToBackMyBooks()">
+        <ion-icon name="ios-remove-circle-outline"></ion-icon>
+      Cancel</button>
+    </div>
+  </ion-list>
 </ion-content>

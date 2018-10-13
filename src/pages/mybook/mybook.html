@@ -1,36 +1,128 @@
-<!--
-  Generated template for the MybookPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar color = "dark">
     <ion-title>My Books</ion-title>
-  </ion-navbar>
-
+  </ion-toolbar>
 </ion-header>
 
+<ion-content padding class = "mainBack-image">  
+  <ion-item id= "mainGrouped" no-lines>
+    <button ion-button icon-only color="light" round large clear item-right (click) = "getBookList()">
+      <ion-icon name="refresh"></ion-icon>
+    </button>
+    <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
+      <ion-icon name="help"></ion-icon>
+    </button>
+  </ion-item> 
+  
+  <!-- <table datatable [dtOptions] = "dtOptions" [dtTrigger] = "dtTrigger" class = "row-border hover">
+    <thead>
+      <tr>
+          <th>Book Number</th>
+          <th>Book Name</th>
+          <th>Edition</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Author</th>
+          <th>Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr **ngFor="let book of books">
+          <td>{{book.Book_Number}}</td>
+          <td>{{book.Book_Name}}</td>
+          <td>{{book.Book_Edition}}</td>
+          <td>{{book.Book_Price}}</td>
+          <td>{{book.Book_Type}}</td>
+          <td>{{book.Author_Name}}</td>
+          <td>{{book.Subject_Code}}</td>
+      </tr>
+    </tbody>
+  </table> -->
 
-<ion-content padding>
-<ion-item>
-    <button ion-button icon-only round large clear item-right (click) = "getBookList()">
-        <ion-icon name="refresh">
-        </ion-icon>
-    </button>
-    <button ion-button icon-only round large clear item-right (click) = "showHelpAlert()">
-          <ion-icon name="help"></ion-icon>
-    </button>
-</ion-item>
-    
+  <!-- <p> {{data | json}} </p>
+
+  <table class="table table-reponsive table-condensed">
+    <tr>
+      <th *ngFor = "let t of tableLabel"> {{t}} </th>
+    </tr>
+    <tr *ngFor = "let d of tableData">
+      <td *ngFor = "let t of tableLable; let j = index"> {{d && d.data[j]}} </td>
+    </tr>
+  </table> -->
+
+  <!-- <p> {{data | json}} </p> -->
+
+ <!-- 00000000000000000000000000000000000000000000000000000000000000000000000000000000  -->
+  <!-- <table datatable class = "row-border hover">
+    <thead>
+    <tr>
+        <th>Book Number</th>
+        <th>Book Name</th>
+        <th>Edition</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Author</th>
+        <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody *ngIf = "books?.length != 0">
+    <tr *ngFor = "let book of myBook">
+        <td>{{book.Book_Number}}</td>
+        <td>{{book.Book_Name}}</td>
+        <td>{{book.Book_Edition}}</td>
+        <td>{{book.Book_Price}}</td>
+        <td>{{book.Book_Type}}</td>
+        <td>{{book.Author_Name}}</td>
+        <td>{{book.Subject_Code}}</td>
+    </tr>
+  </tbody>
+  </table> -->
+<!-- 000000000000000000000000000000000000000000000000000000000000000000000 -->
+  <!-- <br>
+    <table cellpadding = "0" cellspacing = "0" ng-show = "isVisible" class = "container-fluid" id= "mainGrouped">
+      <thead>
+        <tr>
+          <th>Book Number</th>
+          <th>Book Name</th>
+          <th>Edition</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Author</th>
+          <th>Subject</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{bookNumber}}</td>
+          <td>{{bookName}}</td>
+          <td>{{edition}}</td>
+          <td>{{price}}</td>
+          <td>{{type}}</td>
+          <td>{{author}}</td>
+          <td>{{subject}}</td>
+        </tr>  
+      </tbody>
+    </table> -->
+
 </ion-content>
 
-
 <ion-footer>
-  <ion-navbar>
-    <button ion-button block (click) = "onToGoAdd()">Add</button>
-    <button ion-button block (click) = "showRemovePrompt()">Remove</button>
-    <button ion-button block (click) = "onGoToMenu()">Back</button>
-  </ion-navbar>
+  <ion-toolbar color = "dark">
+    <div class = "row">
+      <div class = "col">
+        <button ion-button color="light" block round outline icon-start (click) = "onToGoAdd()">
+          <ion-icon name="ios-create-outline"></ion-icon>  
+        Add</button>
+      </div> 
+      <div class = "col">
+        <button ion-button color="light" block round outline icon-start (click) = "showRemovePrompt()">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        Remove</button>
+      </div>
+    </div>
+    <button ion-button color="light" block round outline icon-start (click) = "onGoToMenu()">
+      <ion-icon name="ios-arrow-back"></ion-icon>
+      <ion-icon name="ios-arrow-back"></ion-icon>
+    Back</button>
+  </ion-toolbar>
 </ion-footer>
