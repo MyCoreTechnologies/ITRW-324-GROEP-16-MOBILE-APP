@@ -1,4 +1,5 @@
 page-addbook {
+    // Method to to call an image from the files to insert as a background
     .mainBack-image {
         background-image: url('../../assets/imgs/Background.jpg');
         background-repeat: no-repeat;
@@ -6,10 +7,12 @@ page-addbook {
         background-size: large;
     }
 
+    // Method to make the items transparent with color
     #mainGrouped{
         background: transparentize($color: #000000, $amount: 0.4);
     }
 
+    // Method to make the items completely transparent.
     #mainGroupedClear{
         background: transparent;
     }

@@ -1,12 +1,17 @@
+<!-- Create Header with title and toobar for BookList Screen -->
+<!-- Create Icon on the LEFT side of the title -->
 <ion-header>
   <ion-toolbar color = "dark">
-    <ion-title>Book List</ion-title>
+    <ion-title item-start>
+      <ion-icon name="ios-list-box-outline"></ion-icon>
+    Book List</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
+<!-- Start of page content -->
 <ion-content padding class = "mainBack-image">
 
+  <!-- Button to display a help message -->
   <ion-item id= "mainGrouped" no-lines>
     <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
       <ion-icon name="help"></ion-icon>
@@ -59,18 +64,25 @@
 
 </ion-content>
 
+<!-- Footer for BookList page -->
 <ion-footer>
   <ion-toolbar color = "dark">
     <div class = "row">
+
+      <!-- Button for filter popup, ON THE LEFT -->
       <div class = "col">
         <button ion-button color="light" block round outline icon-start (click) = "showFilter()">
           <ion-icon name="md-funnel"></ion-icon> 
         Filter</button></div>
+
+      <!-- Button for removing filter, ON THE RIGHT -->
       <div class = "col">
         <button ion-button color="light" block round outline icon-start (click) = "getBookList()">
           <ion-icon name="ios-infinite-outline"></ion-icon> 
         Remove Filter</button></div>
       </div>
+
+      <!-- Go back button -->
       <button ion-button color="light" block round outline icon-start (click) = "onGoToMenu()">
         <ion-icon name="ios-arrow-back"></ion-icon>
         <ion-icon name="ios-arrow-back"></ion-icon>

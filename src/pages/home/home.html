@@ -1,13 +1,18 @@
+<!-- Create Header with title and toobar for login Screen -->
+<!-- Create Icon on the LEFT side of the title -->
 <ion-header>
   <ion-toolbar color = "dark"> 
-      <ion-title icon-start>
+      <ion-title item-start>
         <ion-icon name="log-in"></ion-icon>
         Login
       </ion-title>  
   </ion-toolbar>
 </ion-header>
 
+<!-- Start of page content -->
 <ion-content padding class = "mainBack-image">
+
+  <!-- Help button with Alert Message -->
   <ion-list id = "mainGrouped">
     <ion-item no-lines id= "mainGroupedClear">
       <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
@@ -15,15 +20,20 @@
       </button>
     </ion-item>
 
+    <!-- Inserted logo -->
     <img style="width: 350px; height: 175px" src="../../assets/imgs/SELIT.png">
 
+    <!-- Form Created for login details and buttons -->
     <form (ngSubmit)="postSignIn(f)" #f="ngForm">
       <ion-list>
+
+        <!-- Student number input box -->
         <ion-item id= "mainGroupedClear">
           <ion-label floating color = "light">Student Number</ion-label>
           <ion-input color = "light" type="text" [(ngModel)]="loginData.student_number" name="student_number"></ion-input>
         </ion-item>
   
+        <!-- Password input box -->
         <ion-item id= "mainGroupedClear">
           <ion-label floating color = "light" >Password</ion-label>
           <ion-input color = "light" type="password" [(ngModel)]="loginData.password" name="password"></ion-input>
@@ -31,12 +41,19 @@
   
       </ion-list>
 
+      <!-- Button for detail submission -->
       <div padding>
-        <button ion-button color="light" block round outline type="submit">Sign In</button>
+        <button ion-button color="light" block round outline icon-start type="submit">
+          <ion-icon name="log-in"></ion-icon>
+        Sign In</button>
       </div>
     </form>
+
+      <!-- Button to exit application -->
       <div padding>
-        <button ion-button color="light" block round outline>Exit</button>
+        <button ion-button color="light" block round outline icon-start> 
+          <ion-icon name="ios-exit-outline"></ion-icon>
+        Exit</button>
       </div>
 
   </ion-list>

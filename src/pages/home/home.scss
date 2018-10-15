@@ -1,27 +1,25 @@
 .md,.ios,.wp{
 page-home {
+
+    // Method to to call an image from the files to insert as a background
     .mainBack-image {
         background-image: url('../../assets/imgs/Background.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: large;
     }
-    
-    .customAlert {
-        background: transparentize($color: #000000, $amount: 0.1) !important;
-        color: red !important;
-        $alert-md-background-color: #F35E5D;
-        $alert-ios-background: #F35E5D;
-    }
 
+    // Method to make the footer and/or header transparent with color
     #barTrans{
         background: transparentize($color: #000000, $amount: 0.1);
     }
 
+    // Method to make the items transparent with color
     #mainGrouped{
         background: transparentize($color: #000000, $amount: 0.4);
     }
 
+    // Method to make the items completely transparent.
     #mainGroupedClear{
         background: transparent;
     }

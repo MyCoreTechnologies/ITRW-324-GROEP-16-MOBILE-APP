@@ -1,17 +1,25 @@
+<!-- Create Header with title and toobar for Home Screen -->
+<!-- Create Icon on the LEFT side of the title -->
 <ion-header>
   <ion-toolbar color = "dark">
-    <ion-title>Home</ion-title>
+    <ion-title item-start>
+        <ion-icon name="ios-home-outline"></ion-icon>
+    Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
+<!-- Start of page content -->
 <ion-content class = "mainBack-image">
   <ion-item id= "mainGrouped" no-lines>
+
+    <!-- Button to go to MyBookPage -->
     <div class = "middle">
       <button ion-button color="light" large block round outline icon-start (click) = "onGoToMyBooks(); getMyBookList()">
         <ion-icon name="book"></ion-icon>
       My Book </button>
     </div>
+
+    <!-- Button to go to BookListPage -->
     <div>
       <button ion-button color="light" large block round outline icon-start (click) = "onGoToBookList()">
         <ion-icon name="book"></ion-icon>
@@ -21,8 +29,11 @@
 
 </ion-content>
 
+<!-- Footer for Home Screen -->
 <ion-footer>
   <ion-toolbar color = "dark" background = "transparentize($color: #000000, $amount: 0.4)">
+    
+    <!-- Button for log out button -->
     <button ion-button color="light" block round outline large icon-start (click) = "onGoToLogOut()">
       <ion-icon name="log-out"></ion-icon>
     Log Out</button>

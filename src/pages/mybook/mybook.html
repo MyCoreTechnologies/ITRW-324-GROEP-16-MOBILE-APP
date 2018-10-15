@@ -1,14 +1,23 @@
+<!-- Create Header with title and toobar for MyBook Screen -->
+<!-- Create Icon on the LEFT side of the title -->
 <ion-header>
   <ion-toolbar color = "dark">
-    <ion-title>My Books</ion-title>
+    <ion-title item-start>
+      <ion-icon name="ios-list-box-outline"></ion-icon>  
+    My Books</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Start of page content -->
 <ion-content padding class = "mainBack-image">  
   <ion-item id= "mainGrouped" no-lines>
+
+    <!-- Button for refresing list of books -->
     <button ion-button icon-only color="light" round large clear item-right (click) = "getBookList()">
       <ion-icon name="refresh"></ion-icon>
     </button>
+
+    <!-- Button for giving a help alert message -->
     <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
       <ion-icon name="help"></ion-icon>
     </button>
@@ -106,20 +115,27 @@
 
 </ion-content>
 
+<!-- Footer for the MyBook screen -->
 <ion-footer>
   <ion-toolbar color = "dark">
     <div class = "row">
+
+      <!-- Button to go books list, ON THE LEFT-->
       <div class = "col">
         <button ion-button color="light" block round outline icon-start (click) = "onToGoAdd()">
           <ion-icon name="ios-create-outline"></ion-icon>  
         Add</button>
       </div> 
+
+      <!-- Button to remove a book, ON THE RIGHT -->
       <div class = "col">
         <button ion-button color="light" block round outline icon-start (click) = "showRemovePrompt()">
           <ion-icon name="ios-trash-outline"></ion-icon>
         Remove</button>
       </div>
     </div>
+
+    <!-- Go back button -->
     <button ion-button color="light" block round outline icon-start (click) = "onGoToMenu()">
       <ion-icon name="ios-arrow-back"></ion-icon>
       <ion-icon name="ios-arrow-back"></ion-icon>
