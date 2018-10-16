@@ -26,26 +26,14 @@ import { SubmitService } from '../../posts/app.service';
 // }
 
 export class MybookPage {
-  // data: any[];
 
-  // data;
-  // bookNumber;
-  // bookName;
-  // edition;
-  // price;
-  // type;
-  // author;
-  // subject;
-  // arr = 0;
-  // tableLabel;
-  // tableData = [];  
-
-  // books: myBook[];
+  books;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController, 
               private submitService: SubmitService) {
+              this.getMyBookList()
   }
 
   ionViewDidLoad() {
@@ -121,7 +109,7 @@ export class MybookPage {
     } 
 
   // get method for getting the MyBook list and displays the list
-  getBookList(){
+  getMyBookList(){
 
     //Request is send to web service
     this.submitService.getMyBookData()
@@ -129,27 +117,7 @@ export class MybookPage {
     // Service sends the book list
     .subscribe(response => {
       console.log(response);
-
-     // this.books = response[0];
-
-      // this.tableLabel = response[0].labels;
-
-      // let arr = 0;
-      // while(response[arr] != null){
-      //   this.tableData.push(response[arr]);
-      //   arr++;
-      // }
-
-      // console.log(this.tableData);
-      // console.log(this.tableLabel);
-
-      // this.data = response;
-      // this.bookNumber = this.data[this.arr].Book_Number;
-      // this.bookName = this.data[this.arr].Book_Name;
-      // this.edition = this.data[this.arr].Book_Edition;
-      // this.type = this.data[this.arr].Book_Type;
-      // this.author = this.data[this.arr].Author_Name;
-      // this.subject = this.data[this.arr].Subject_Code;
+      this.books = response;
 
     },
     (error) => console.log('Problem accuired during book retrieval.'));

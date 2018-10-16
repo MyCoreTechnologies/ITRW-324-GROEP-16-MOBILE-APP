@@ -13,7 +13,7 @@
   <ion-item id= "mainGrouped" no-lines>
 
     <!-- Button for refresing list of books -->
-    <button ion-button icon-only color="light" round large clear item-right (click) = "getBookList()">
+    <button ion-button icon-only color="light" round large clear item-right (click) = "getMyBookList()">
       <ion-icon name="refresh"></ion-icon>
     </button>
 
@@ -23,48 +23,11 @@
     </button>
   </ion-item> 
   
-  <!-- <table datatable [dtOptions] = "dtOptions" [dtTrigger] = "dtTrigger" class = "row-border hover">
+  <!-- Data table displaying Headers and list of books -->
+  <table datatable class = "row-border hover">
     <thead>
+      <!-- Headers -->
       <tr>
-          <th>Book Number</th>
-          <th>Book Name</th>
-          <th>Edition</th>
-          <th>Price</th>
-          <th>Type</th>
-          <th>Author</th>
-          <th>Subject</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr **ngFor="let book of books">
-          <td>{{book.Book_Number}}</td>
-          <td>{{book.Book_Name}}</td>
-          <td>{{book.Book_Edition}}</td>
-          <td>{{book.Book_Price}}</td>
-          <td>{{book.Book_Type}}</td>
-          <td>{{book.Author_Name}}</td>
-          <td>{{book.Subject_Code}}</td>
-      </tr>
-    </tbody>
-  </table> -->
-
-  <!-- <p> {{data | json}} </p>
-
-  <table class="table table-reponsive table-condensed">
-    <tr>
-      <th *ngFor = "let t of tableLabel"> {{t}} </th>
-    </tr>
-    <tr *ngFor = "let d of tableData">
-      <td *ngFor = "let t of tableLable; let j = index"> {{d && d.data[j]}} </td>
-    </tr>
-  </table> -->
-
-  <!-- <p> {{data | json}} </p> -->
-
- <!-- 00000000000000000000000000000000000000000000000000000000000000000000000000000000  -->
-  <!-- <table datatable class = "row-border hover">
-    <thead>
-    <tr>
         <th>Book Number</th>
         <th>Book Name</th>
         <th>Edition</th>
@@ -72,46 +35,23 @@
         <th>Type</th>
         <th>Author</th>
         <th>Subject</th>
+      </tr>
+    </thead>
+    <!-- If book array is smaller than 0 -->
+    <tbody *ngIf = "books?.length != 0">
+
+    <!-- List of book content -->
+    <tr *ngFor = "let book of books">
+      <td>{{book.Book_Number}}</td>
+      <td>{{book.Book_Name}}</td>
+      <td>{{book.Book_Edition}}</td>
+      <td>{{book.Book_Price}}</td>
+      <td>{{book.Book_Type}}</td>
+      <td>{{book.Author_Name}}</td>
+      <td>{{book.Subject_Code}}</td>
     </tr>
-  </thead>
-  <tbody *ngIf = "books?.length != 0">
-    <tr *ngFor = "let book of myBook">
-        <td>{{book.Book_Number}}</td>
-        <td>{{book.Book_Name}}</td>
-        <td>{{book.Book_Edition}}</td>
-        <td>{{book.Book_Price}}</td>
-        <td>{{book.Book_Type}}</td>
-        <td>{{book.Author_Name}}</td>
-        <td>{{book.Subject_Code}}</td>
-    </tr>
-  </tbody>
-  </table> -->
-<!-- 000000000000000000000000000000000000000000000000000000000000000000000 -->
-  <!-- <br>
-    <table cellpadding = "0" cellspacing = "0" ng-show = "isVisible" class = "container-fluid" id= "mainGrouped">
-      <thead>
-        <tr>
-          <th>Book Number</th>
-          <th>Book Name</th>
-          <th>Edition</th>
-          <th>Price</th>
-          <th>Type</th>
-          <th>Author</th>
-          <th>Subject</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{bookNumber}}</td>
-          <td>{{bookName}}</td>
-          <td>{{edition}}</td>
-          <td>{{price}}</td>
-          <td>{{type}}</td>
-          <td>{{author}}</td>
-          <td>{{subject}}</td>
-        </tr>  
-      </tbody>
-    </table> -->
+    </tbody>
+  </table>
 
 </ion-content>
 

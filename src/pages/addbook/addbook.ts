@@ -17,15 +17,16 @@ export class AddbookPage {
   // Values of book details added with input = bookAdd 
   bookAdd = {};
 
-  sysDate: String = new Date().toISOString();
+  //sysDate = Date.now();
+  
   constructor(public navCtrl: NavController, private submitService: SubmitService) {
 
   }
 
   // POST method to send entered book details to the web service
   postAddBook(form: NgForm ) {
+
     console.log(form.value);
-   // form.value.patchValue({"date_placed": "sysDate"});
     // Request send to the web service
     this.submitService.postBookData(form.value)
 

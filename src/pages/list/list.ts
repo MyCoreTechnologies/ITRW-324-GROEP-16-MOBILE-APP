@@ -42,17 +42,4 @@ export class ListPage {
     sessionStorage.clear();
   }
 
-  // Get method to receive book list from webservice
-  getMyBookList(){
-
-    //Sends request for web service
-    this.submitService.getMyBookData()
-
-    //Web service sends book list
-    .subscribe(response => {
-      console.log(response);
-    },
-    (error) => console.log('Problem accuired during book retrieval.'));
-  }
-
 }

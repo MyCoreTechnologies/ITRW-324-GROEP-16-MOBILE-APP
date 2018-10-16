@@ -29,7 +29,7 @@
         <!-- Input for ISBN 10 -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">ISBN 10</ion-label>
-          <ion-input maxlength = "10" text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number"></ion-input>
+          <ion-input lengthmax = "10" maxlength = "10" text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number"></ion-input>
         </ion-item>
 
         <!-- Input for ISNB 13 -->
@@ -65,9 +65,11 @@
           <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
-        <!-- <ion-item id = "mainGroupedClear">
-          <ion-datetime displayFormat="YYYY MM DD" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
-        </ion-item> -->
+        <!-- Input for Date -->
+        <ion-item id = "mainGroupedClear">
+          <ion-label color = "light">Date Placed</ion-label>
+          <ion-datetime displayFormat="YYYY MM DD" placeholder="Click to add date" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
+        </ion-item>
 
       </ion-list>
 

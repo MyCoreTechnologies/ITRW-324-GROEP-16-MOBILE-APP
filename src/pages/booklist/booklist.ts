@@ -39,18 +39,18 @@ export class BooklistPage {
   // public rows : any;
 
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public alertCtrl: AlertController, 
-    private submitService: SubmitService,
-    private _HTTP   	: HttpClient) {
-      this.getBookList();
+              public navParams: NavParams, 
+              public alertCtrl: AlertController, 
+              private submitService: SubmitService,
+              private _HTTP   	: HttpClient) {
+              this.getBookList();
 
       // this.columns = [
       //   { Name: 'book_Name'},
       //   { Type: 'book_type'},
       //   { Price: 'book_price'}
       // ];
-    }
+  }
 
   ionViewDidLoad() : void{
     // this.submitService.getBookListData()
