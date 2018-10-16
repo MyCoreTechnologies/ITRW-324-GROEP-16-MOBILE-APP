@@ -39,7 +39,7 @@
         </ion-item>
       
         <!-- Input for Price -->
-        <ion-item id = "mainGroupedClear">
+        <ion-item id = "mainGroupedClear"> 
           <ion-label color = "light">Price</ion-label>
           <ion-input maxlength = "7" text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
         </ion-item>
@@ -62,7 +62,7 @@
         <!-- Input for Subject code -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">Subject Code</ion-label>
-          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
+          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" autocapitalize=characters [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
         <!-- Input for Date -->

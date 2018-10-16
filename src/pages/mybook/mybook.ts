@@ -1,13 +1,12 @@
 // mybook.ts Methods
 
 // Imports for mybook.ts
-import { ListPage } from './../list/list';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddbookPage } from '../addbook/addbook';
 import { AlertController } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
 import { SubmitService } from '../../posts/app.service';
+
 
 @IonicPage()
 @Component({
@@ -15,18 +14,10 @@ import { SubmitService } from '../../posts/app.service';
   templateUrl: 'mybook.html',
 })
 
-// class myBook{
-//   Book_Number: number;
-//   Book_Name: string;
-//   Book_Edition: string;
-//   Book_Price: number;
-//   Book_type: string;
-//   Author_Name: string;
-//   Subject_Code: string;
-// }
-
 export class MybookPage {
 
+  // Create Variable:
+  // for book list received from the web service = books
   books;
 
   constructor(public navCtrl: NavController, 
@@ -45,7 +36,9 @@ export class MybookPage {
     this.navCtrl.push(AddbookPage);
   }
 
+  ///////////////////////////////////////
   //Method for displaying a remove prompt
+  ///////////////////////////////////////
   showRemovePrompt(){
     // Constant variable for prompt alert with all information
     const prompt = this.alertCtrl.create({
@@ -117,6 +110,8 @@ export class MybookPage {
     // Service sends the book list
     .subscribe(response => {
       console.log(response);
+
+      // Takes the reponse from webservice and adds them to the books variable
       this.books = response;
 
     },
@@ -124,7 +119,3 @@ export class MybookPage {
   }  
 
 }
-
- 
-
-

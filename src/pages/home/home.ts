@@ -22,7 +22,7 @@ export class HomePage {
   // For saving token to session storages = data
   loginData = {};
   data;
-
+  
   constructor(public navCtrl: NavController,
               private submitService: SubmitService,
               public alertCtrl: AlertController, 
@@ -40,6 +40,17 @@ export class HomePage {
       });
       timeOutAlert.present();
       console.log('Server not responding.')
+  }
+
+  loginAlert(){
+    const loginAlert = this.alertCtrl.create({
+      title: `Can't Login!`,
+      subTitle: `Student Number/Password do not match.`,
+      cssClass: 'loginAlert',
+      buttons: ['OK']
+      });
+      loginAlert.present();
+      console.log('Invalid login details.')
   }
 
   // POST method for sending login details of student to web service
@@ -92,8 +103,9 @@ export class HomePage {
         this.navCtrl.push(ListPage);
       }
     },
-      // Error message in log
-      (error) => console.log('Problem accuired during login.'));
+      // Error message in log and displays login alert
+      (error) => {console.log('Problem accuired during login.');
+                  load.dismiss(); this.loginAlert()});
   } 
 
     // Create a method that can be called to display a help alert

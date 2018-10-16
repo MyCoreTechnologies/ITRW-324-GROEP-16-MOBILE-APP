@@ -16,4 +16,39 @@ page-mybook {
     #mainGroupedClear{
         background: transparent;
     }
+
+    table {
+        background: transparentize($color: #000000, $amount: 0.4);
+        border:none;
+        width: 650px;
+        height: 300px;
+        border-collapse: collapse;
+        
+    }
+    
+    table td {
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+    }
+
+    thead { 
+        background: transparentize($color: #000000, $amount: 0.4) 
+    }
+
+    tr.odd { 
+        background: black transparentize($color: white, $amount: 0.4)
+    }
+
+    tr.even { 
+        background: black transparentize($color: #000000, $amount: 0.4)
+    }
+
+    table td:first-child {
+        border-left: none;
+    }
+    
+    table td:last-child {
+        border-right: none;
+    }
+   
 }

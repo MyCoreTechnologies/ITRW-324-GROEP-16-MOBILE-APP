@@ -1,16 +1,11 @@
 //booklist.ts Methods
 
 //Imports for booklist.ts
-import { ListPage } from './../list/list';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SubmitService } from '../../posts/app.service';
 import { HttpClient } from '@angular/common/http';
-
-export interface Config {
-	//bookList: string;
-}
 
 @IonicPage()
 @Component({
@@ -23,20 +18,16 @@ export class BooklistPage {
   // Create Variables:
   // Filter popup open or not = filterRadioOpen
   // The option chosen in the filter popup = filterRadioResult
-  // Array of books recieved by the web service = bookList 
+  // for book list received from the web service = books
   filterRadioOpen: boolean;
   filterRadioResult;
-  bookList: Array<any> = [];
+  books;
 
   // The result choosen at type filter
   // Advertisement = adData
   // Request = reqData
   adData = `{"book_type": "Advertisement"}`;
   reqData = `{"book_type": "Request"}`;
-
-  // public config : Config;
-  // public columns : any;
-  // public rows : any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -53,11 +44,6 @@ export class BooklistPage {
   }
 
   ionViewDidLoad() : void{
-    // this.submitService.getBookListData()
-    //   .subscribe((data) =>
-    //   {
-    //      this.rows = data.bookList;
-    //   });
     console.log('ionViewDidLoad BooklistPage');
   }
 
@@ -235,7 +221,10 @@ export class BooklistPage {
     // Web page send the filterd booklist based on the type value
     .subscribe(response => {
       console.log(response);
-//      typeFilterBooks : [response];
+
+      // Takes the reponse from webservice and adds them to the books variable
+      this.books = response;
+
     },
       (error) => console.log('Problem accuired during type filter.'));
     } 
@@ -249,6 +238,9 @@ export class BooklistPage {
     // Web page send the filterd booklist based on the subject value
     .subscribe(response => {
       console.log(response);
+
+      // Takes the reponse from webservice and adds them to the books variable
+      this.books = response;
     },
       (error) => console.log('Problem accuired during subject filter.'));
     } 
@@ -262,6 +254,9 @@ export class BooklistPage {
     // Web page send the filterd booklist based on the price value
     .subscribe(response => {
       console.log(response);
+
+      // Takes the reponse from webservice and adds them to the books variable
+      this.books = response;
     },
       (error) => console.log('Problem accuired during price fiter.'));
     }
@@ -275,11 +270,10 @@ export class BooklistPage {
       .subscribe(
       (response) => {
         console.log(response);
-        // let count = 0;
-        this.bookList.push(response);
-        console.log(this.bookList);
+
+        // Takes the reponse from webservice and adds them to the books variable
+        this.books = response;
       },
-        // this.bookpage.getBooks();,
       (error) => console.log('Problem accuired during book retrieval.'));
     }
 

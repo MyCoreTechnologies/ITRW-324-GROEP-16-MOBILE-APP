@@ -18,49 +18,47 @@
     </button>
   </ion-item>
 
-  <!-- <ion-item>
-  <table> {{ bookList }} </table>
-  <p> {{ bookList }} </p>
-  </ion-item> -->
+  <div style="overflow-x:auto">
+    <!-- Data table displaying Headers and list of books -->
+    <table datatable class = "table-wrapper" id= "mainGrouped" cellspacing = "0" width = "100%">
+      <thead>
+        <!-- Headers -->
+        <tr>
+          <th>Book Name</th>
+          <th>Edition</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Author</th>
+          <th>Subject</th>
+          <th>ISBN 10</th>
+          <th>ISBN 13</th>
+          <th>Student Number</th>
+          <th>Name</th>
+          <th>Contact Number</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <!-- If book array is smaller than 0 -->
+      <tbody *ngIf = "books?.length != 0">
 
-
-  <!-- <ion-item *ngFor="let b of bookList">
-      {{b | json }}
-  </ion-icon> -->
-
-  <!-- <ion-item *ngFor = "let b of booksList">
-    <p *ngFor= "let name of b"></p>
-    <p>{{ name }}</p>
-    <p>{{ b }}</p>
-  </ion-item> -->
-
-
-  <!-- <div *ngFor="let b of bookList">
-
-      <ion-item>
-        <h2>Name : {{b}}</h2>
-      </ion-item>
-    </div> -->
-
-  <ion-option *ngFor="let b of bookList" value="{{ b.bookList }}">{{ b.bookList }}
-    <p>{{ b | json}}</p>
-  </ion-option>
-  
-    <!-- <p *ngFor="let b of bookList">{{ b }}</p> -->
-  
-
-  <!-- <div>
-    <ngx-datatable
-       [sortType]="'multi'"
-       [headerHeight]="50"
-       [footerHeight]="50"
-       [rowHeight]="50"
-       [rows]="rows"
-       [columns]="columns"
-       [columnMode]="'force'"
-       [limit]="10">
-     </ngx-datatable>
-  </div> -->
+      <!-- List of book content -->
+      <tr *ngFor = "let book of books">
+        <td>{{book.Book_Name}}</td>
+        <td>{{book.Book_Edition}}</td>
+        <td>{{book.Book_Price}}</td>
+        <td>{{book.Book_Type}}</td>
+        <td>{{book.Author_Name}}</td>
+        <td>{{book.Subject_Code}}</td>
+        <td>{{book.Book_ISBN_10_Number}}</td>
+        <td>{{book.Book_ISBN_13_Number}}</td>
+        <td>{{book.Student_Number}}</td>
+        <td>{{book.First_Name}}</td>
+        <td>{{book.Contact_Number}}</td>
+        <td>{{book.Email_Address}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div> 
 
 </ion-content>
 
