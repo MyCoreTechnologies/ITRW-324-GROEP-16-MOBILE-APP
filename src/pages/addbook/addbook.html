@@ -65,17 +65,11 @@
           <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" autocapitalize=characters [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
-        <!-- Input for Date -->
-        <ion-item id = "mainGroupedClear">
-          <ion-label color = "light">Date Placed</ion-label>
-          <ion-datetime displayFormat="YYYY MM DD" placeholder="Click to add date" [(ngModel)]="bookAdd.date_placed" name="date_placed"></ion-datetime>
-        </ion-item>
-
       </ion-list>
 
       <!-- Button for submitting the book details -->
       <div padding>
-        <button ion-button color="light" block round outline type="submit" icon-start (click) = "onGoToBackMyBooks()">
+        <button ion-button color="light" block round outline type="submit" icon-start>
           <ion-icon name="ios-create-outline"></ion-icon> 
         Add</button>
       </div>

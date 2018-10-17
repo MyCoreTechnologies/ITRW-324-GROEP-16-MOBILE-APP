@@ -16,9 +16,11 @@ import { SubmitService } from '../../posts/app.service';
 
 export class MybookPage {
 
+  //=============================================================================
   // Create Variable:
   // for book list received from the web service = books
   books;
+  //=============================================================================
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -31,14 +33,16 @@ export class MybookPage {
     console.log('ionViewDidLoad MybookPage');
   }
 
+  //=============================================================================
   // Method for going to AddBookPage
+  //=============================================================================
   onToGoAdd(){
     this.navCtrl.push(AddbookPage);
   }
 
-  ///////////////////////////////////////
+  //=============================================================================
   //Method for displaying a remove prompt
-  ///////////////////////////////////////
+  //=============================================================================
   showRemovePrompt(){
     // Constant variable for prompt alert with all information
     const prompt = this.alertCtrl.create({
@@ -46,6 +50,7 @@ export class MybookPage {
           message: "Enter the NUMBER of the book that you want to remove.",
           inputs: [{
           name: 'book_number',
+          type: "number",
           placeholder: 'E.g. 35'
           },],
       //Two buttons with two funtions
@@ -72,12 +77,16 @@ export class MybookPage {
     prompt.present();
   }
 
+  //=============================================================================
   // Method for removing the present page; going to the previous page.
+  //=============================================================================
   onGoToMenu(){
      this.navCtrl.pop();
   }
 
+  //=============================================================================
   // Method for displaying the help alert message.
+  //=============================================================================
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help!',
@@ -87,7 +96,21 @@ export class MybookPage {
     helpAlert.present();
   }
 
+  //=============================================================================
+  // Alert method for displaying a invalid details error.
+  //=============================================================================
+  showInvalidAlert() {
+    const invalidAlert = this.alertCtrl.create({
+      title: 'Wrong!',
+      subTitle: `Number entered is invalid.`,
+      buttons: ['OK']
+    });
+    invalidAlert.present();
+  }
+
+  //=============================================================================
   // POST method to remove a book with the matching book number.
+  //=============================================================================
   postRemoveBook(data) {
     console.log(data);
 
@@ -98,10 +121,13 @@ export class MybookPage {
     .subscribe(response => {
       console.log(response);
     },
-      (error) => console.log('Problem accuired during book remove.'));
+      (error) => {console.log('Problem accuired during book remove.');
+                  this.showInvalidAlert()});
     } 
 
-  // get method for getting the MyBook list and displays the list
+  //=============================================================================  
+  // get method for getting the MyBook list and displays the list.
+  //=============================================================================
   getMyBookList(){
 
     //Request is send to web service

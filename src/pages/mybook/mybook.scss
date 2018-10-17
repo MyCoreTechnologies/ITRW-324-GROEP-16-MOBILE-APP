@@ -17,38 +17,22 @@ page-mybook {
         background: transparent;
     }
 
-    table {
-        background: transparentize($color: #000000, $amount: 0.4);
-        border:none;
-        width: 650px;
-        height: 300px;
+    // Creating column and row lines with white text
+    table, th, td{
+        border: 1px solid grey;
         border-collapse: collapse;
-        
-    }
-    
-    table td {
-        border-left: 2px solid #000;
-        border-right: 2px solid #000;
-    }
-
-    thead { 
-        background: transparentize($color: #000000, $amount: 0.4) 
-    }
-
-    tr.odd { 
-        background: black transparentize($color: white, $amount: 0.4)
-    }
-
-    tr.even { 
-        background: black transparentize($color: #000000, $amount: 0.4)
-    }
-
-    table td:first-child {
-        border-left: none;
-    }
-    
-    table td:last-child {
-        border-right: none;
+        padding: 5px;
+        color: rgb(255, 255, 255);
     }
    
+    // Black transparentcy on headings
+    table thead{
+        background-color: transparentize($color: #000000, $amount: 0.4);
+    }
+
+    // Data text = white
+    label, td, tr {
+        color: white;
+    }
+
 }

@@ -14,8 +14,10 @@ import { SubmitService } from '../../posts/app.service';
 })
 export class ListPage {
 
+  //=============================================================================
   // Array created for receiving books books list = bookList
   bookList: Array<{}> = [];
+  //=============================================================================
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -25,18 +27,24 @@ export class ListPage {
     console.log('ionViewDidLoad ListPage');
   }
 
+  //=============================================================================
   // Method for opening MyBookPage
+  //=============================================================================
   onGoToMyBooks(){
     this.navCtrl.push(MybookPage);
   }
 
+  //=============================================================================
   // Method for opening BookListPage
+  //=============================================================================
   onGoToBookList(){
     this.navCtrl.push(BooklistPage);
   }
-
+  
+  //=============================================================================
   // Method for going back to the login page
   // and removes token.
+  //=============================================================================
   onGoToLogOut(){
     this.navCtrl.popToRoot();
     sessionStorage.clear();

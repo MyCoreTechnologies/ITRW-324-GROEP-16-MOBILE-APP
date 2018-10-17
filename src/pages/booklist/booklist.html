@@ -12,26 +12,27 @@
 <ion-content padding class = "mainBack-image">
 
   <!-- Button to display a help message -->
-  <ion-item id= "mainGrouped" no-lines>
-    <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
-      <ion-icon name="help"></ion-icon>
-    </button>
-  </ion-item>
+    <ion-item id= "mainGrouped" no-lines>
+        <button ion-button icon-only color="light" round large clear item-right (click) = "showHelpAlert()">
+          <ion-icon name="help"></ion-icon>
+        </button>
+    </ion-item>
 
-  <div style="overflow-x:auto">
+  <div style="overflow-x:auto" id= "mainGrouped">
     <!-- Data table displaying Headers and list of books -->
-    <table datatable class = "table-wrapper" id= "mainGrouped" cellspacing = "0" width = "100%">
+    <table datatable class = "table-wrapper">
       <thead>
         <!-- Headers -->
-        <tr>
+        <tr ng-repeat="row in rowCollection">
           <th>Book Name</th>
           <th>Edition</th>
+          <th>Subject</th>
           <th>Price</th>
           <th>Type</th>
           <th>Author</th>
-          <th>Subject</th>
+          <th>Date Place</th>
           <th>ISBN 10</th>
-          <th>ISBN 13</th>
+          <th>ISBN 13</th> 
           <th>Student Number</th>
           <th>Name</th>
           <th>Contact Number</th>
@@ -47,6 +48,7 @@
         <td>{{book.Book_Edition}}</td>
         <td>{{book.Book_Price}}</td>
         <td>{{book.Book_Type}}</td>
+        <td>{{book.Date_Placed | date: "yyyy-MM-dd"}}</td>
         <td>{{book.Author_Name}}</td>
         <td>{{book.Subject_Code}}</td>
         <td>{{book.Book_ISBN_10_Number}}</td>
@@ -58,6 +60,7 @@
       </tr>
       </tbody>
     </table>
+    <p>Total : {{books?.length}}</p>
   </div> 
 
 </ion-content>
@@ -78,7 +81,7 @@
         <button ion-button color="light" block round outline icon-start (click) = "getBookList()">
           <ion-icon name="ios-infinite-outline"></ion-icon> 
         Remove Filter</button></div>
-      </div>
+    </div>
 
       <!-- Go back button -->
       <button ion-button color="light" block round outline icon-start (click) = "onGoToMenu()">

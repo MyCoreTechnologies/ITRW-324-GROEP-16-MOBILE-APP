@@ -17,11 +17,13 @@ import { LoadingController } from "ionic-angular";
 //Start of Class: HomePage
 export class HomePage {
 
+  //=============================================================================
   // Creating variable:
   // entered student login details to send to Webservice = loginData
   // For saving token to session storages = data
   loginData = {};
   data;
+  //=============================================================================
   
   constructor(public navCtrl: NavController,
               private submitService: SubmitService,
@@ -30,7 +32,13 @@ export class HomePage {
 
   }
 
+  // onExit(){
+  //   navigator.app.exitApp();
+  // }
+
+  //=============================================================================
   // Method for creating a Timout alert
+  //=============================================================================
   timeOut(){
     const timeOutAlert = this.alertCtrl.create({
       title: 'Timed Out!',
@@ -42,6 +50,9 @@ export class HomePage {
       console.log('Server not responding.')
   }
 
+  //=============================================================================
+  // Method for creating a Login alert
+  //=============================================================================
   loginAlert(){
     const loginAlert = this.alertCtrl.create({
       title: `Can't Login!`,
@@ -53,7 +64,9 @@ export class HomePage {
       console.log('Invalid login details.')
   }
 
+  //=============================================================================
   // POST method for sending login details of student to web service
+  //=============================================================================
   postSignIn(form: NgForm ) {
     console.log(form.value);
 
@@ -107,8 +120,10 @@ export class HomePage {
       (error) => {console.log('Problem accuired during login.');
                   load.dismiss(); this.loginAlert()});
   } 
-
-    // Create a method that can be called to display a help alert
+  
+  //=============================================================================
+  // Create a method that can be called to display a help alert
+  //=============================================================================
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help!',

@@ -15,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class BooklistPage {
 
+  //=============================================================================
   // Create Variables:
   // Filter popup open or not = filterRadioOpen
   // The option chosen in the filter popup = filterRadioResult
@@ -28,6 +29,7 @@ export class BooklistPage {
   // Request = reqData
   adData = `{"book_type": "Advertisement"}`;
   reqData = `{"book_type": "Request"}`;
+  //=============================================================================
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -36,23 +38,22 @@ export class BooklistPage {
               private _HTTP   	: HttpClient) {
               this.getBookList();
 
-      // this.columns = [
-      //   { Name: 'book_Name'},
-      //   { Type: 'book_type'},
-      //   { Price: 'book_price'}
-      // ];
   }
 
   ionViewDidLoad() : void{
     console.log('ionViewDidLoad BooklistPage');
   }
 
+  //=============================================================================
   // Method to remove present page; going back to the previous page.
+  //=============================================================================
   onGoToMenu(){
     this.navCtrl.pop();
   }
 
+  //=============================================================================
   // Method to pop up a filter alert
+  //=============================================================================
   showFilter(){
     let alertFilter = this.alertCtrl.create();
     alertFilter.setTitle('Select a filter');
@@ -109,7 +110,9 @@ export class BooklistPage {
     });
   }
 
+  //=============================================================================
   // Method for running a Type alert
+  //=============================================================================
   showFilterType(){
     const confirmType = this.alertCtrl.create({
       title: "Type Filter",
@@ -139,7 +142,9 @@ export class BooklistPage {
     confirmType.present();
   }
 
+  //=============================================================================
   // Method for running a Subject alert
+  //=============================================================================
   showFilterSubjectPrompt(){
     const filterSprompt = this.alertCtrl.create({
           title: 'Subject Filter',
@@ -171,7 +176,9 @@ export class BooklistPage {
     filterSprompt.present();
   }
 
+  //=============================================================================
   // Method for running a Price alert
+  //=============================================================================
   showFilterPricePrompt(){
     const filterPprompt = this.alertCtrl.create({
           title: 'Price Filter',
@@ -202,7 +209,9 @@ export class BooklistPage {
     filterPprompt.present();
   }
 
+  //=============================================================================
   // Method to show Help alert
+  //=============================================================================
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help!',
@@ -212,7 +221,9 @@ export class BooklistPage {
     helpAlert.present();
   }
 
+  //=============================================================================
   // POST method to filter the types of book list
+  //=============================================================================
   postFilterTypeBook(data) {
     console.log(data);
     // request send to web service
@@ -228,8 +239,10 @@ export class BooklistPage {
     },
       (error) => console.log('Problem accuired during type filter.'));
     } 
-  
-    // POST method to filter the subject of book list
+
+  //=============================================================================
+  // POST method to filter the subject of book list
+  //=============================================================================
   postFilterSubjectBook(data) {
     console.log(data);
     // request send to web service
@@ -245,7 +258,9 @@ export class BooklistPage {
       (error) => console.log('Problem accuired during subject filter.'));
     } 
 
+  //=============================================================================  
   // POST method to filter the price of book list  
+  //=============================================================================
   postFilterPriceBook(data) {
     console.log(data);
     // request send to web service
@@ -259,23 +274,25 @@ export class BooklistPage {
       this.books = response;
     },
       (error) => console.log('Problem accuired during price fiter.'));
-    }
+  }
+  
+  //=============================================================================
+  // Get method to get list from the web service.
+  //=============================================================================
+  getBookList(){
+    //request send to web service.
+    this.submitService.getBookListData()
 
-    // Get method to get list from the web service.
-    getBookList(){
-      //request send to web service.
-      this.submitService.getBookListData()
+    //Web service sends book list back to user.
+    .subscribe(
+    (response) => {
+      console.log(response);
 
-      //Web service sends book list back to user.
-      .subscribe(
-      (response) => {
-        console.log(response);
-
-        // Takes the reponse from webservice and adds them to the books variable
-        this.books = response;
-      },
-      (error) => console.log('Problem accuired during book retrieval.'));
-    }
+      // Takes the reponse from webservice and adds them to the books variable
+      this.books = response;
+    },
+    (error) => console.log('Problem accuired during book retrieval.'));
+  }
 
 }
 

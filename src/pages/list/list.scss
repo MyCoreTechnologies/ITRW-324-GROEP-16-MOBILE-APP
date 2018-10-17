@@ -17,4 +17,13 @@ page-list {
         background: transparent;
     }
 
+    #middleform{
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        width: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: transparentize($color: #000000, $amount: 0.4);
+    }
 }
