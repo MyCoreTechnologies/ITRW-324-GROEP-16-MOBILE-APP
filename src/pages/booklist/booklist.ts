@@ -52,6 +52,30 @@ export class BooklistPage {
   }
 
   //=============================================================================
+  // Method to show Help alert
+  //=============================================================================
+  showInvalidSubAlert() {
+    const invalidAlert = this.alertCtrl.create({
+      title: 'Wrong!',
+      subTitle: `Subject entered is invalid.`,
+      buttons: ['OK']
+    });
+    invalidAlert.present();
+  }
+
+  //=============================================================================
+  // Method to show Help alert
+  //=============================================================================
+  showInvalidPriceAlert() {
+    const invalidAlert = this.alertCtrl.create({
+      title: 'Wrong!',
+      subTitle: `Price entered is invalid.`,
+      buttons: ['OK']
+    });
+    invalidAlert.present();
+  }
+
+  //=============================================================================
   // Method to pop up a filter alert
   //=============================================================================
   showFilter(){
@@ -185,6 +209,7 @@ export class BooklistPage {
           message: "Enter the maximum PRICE of the book that you want to filter.",
           inputs: [{
           name: 'book_price',
+          type: 'number',
           placeholder: 'E.g. 350'
         },],
       buttons: 
@@ -255,7 +280,8 @@ export class BooklistPage {
       // Takes the reponse from webservice and adds them to the books variable
       this.books = response;
     },
-      (error) => console.log('Problem accuired during subject filter.'));
+      (error) => {console.log('Problem accuired during subject filter.');
+                  this.showInvalidSubAlert()});
     } 
 
   //=============================================================================  
@@ -273,7 +299,8 @@ export class BooklistPage {
       // Takes the reponse from webservice and adds them to the books variable
       this.books = response;
     },
-      (error) => console.log('Problem accuired during price fiter.'));
+      (error) => {console.log('Problem accuired during price fiter.');
+                  this.showInvalidPriceAlert()});
   }
   
   //=============================================================================

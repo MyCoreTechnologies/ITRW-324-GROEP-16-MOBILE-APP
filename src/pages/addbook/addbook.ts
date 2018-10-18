@@ -3,7 +3,7 @@
 //Imports for addbook.ts
 import { SubmitService } from '../../posts/app.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 
