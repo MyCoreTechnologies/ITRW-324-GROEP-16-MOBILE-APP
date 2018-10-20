@@ -4,7 +4,7 @@
 import { AlertController } from 'ionic-angular';
 import { SubmitService } from '../../posts/app.service';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform  } from 'ionic-angular';
 import { ListPage } from '../list/list';
 import { NgForm } from '@angular/forms';
 import { LoadingController } from "ionic-angular";
@@ -28,13 +28,17 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               private submitService: SubmitService,
               public alertCtrl: AlertController, 
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              private platform: Platform) {
 
   }
 
-  // onExit(){
-  //   navigator.app.exitApp();
-  // }
+  //=============================================================================
+  // Method for exiting application
+  //=============================================================================
+  onExit(){
+    this.platform.exitApp();
+  }
 
   //=============================================================================
   // Method for creating a Timout alert
@@ -126,8 +130,8 @@ export class HomePage {
   //=============================================================================
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
-      title: 'Help!',
-      subTitle: `Can't sign in? Register on our Website or contact Support.`,
+      title: 'Help',
+      subTitle: `Can't sign in? Register on the Selit Website or contact Support.`,
       buttons: ['OK']
     });
     helpAlert.present();

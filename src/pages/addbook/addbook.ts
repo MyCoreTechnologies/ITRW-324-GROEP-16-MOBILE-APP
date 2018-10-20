@@ -31,7 +31,7 @@ export class AddbookPage {
   //=============================================================================
   showInvalidAlert() {
     const invalidAlert = this.alertCtrl.create({
-      title: 'Wrong!',
+      title: 'Wrong',
       subTitle: `On or more details entered is invalid.`,
       buttons: ['OK']
     });

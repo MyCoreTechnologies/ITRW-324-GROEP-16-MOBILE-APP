@@ -47,7 +47,7 @@ export class MybookPage {
     // Constant variable for prompt alert with all information
     const prompt = this.alertCtrl.create({
           title: 'Remove',
-          message: "Enter the NUMBER of the book that you want to remove.",
+          message: "Enter the BOOK NUMBER of the book you want to remove from your profile.",
           inputs: [{
           name: 'book_number',
           type: "number",
@@ -89,8 +89,8 @@ export class MybookPage {
   //=============================================================================
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
-      title: 'Help!',
-      subTitle: `This is a list of all your books, you can add more or remove books.`,
+      title: 'Help',
+      subTitle: `These are the books that belong to you. You can add or remove books from your profile.`,
       buttons: ['OK']
     });
     helpAlert.present();
@@ -101,7 +101,7 @@ export class MybookPage {
   //=============================================================================
   showInvalidAlert() {
     const invalidAlert = this.alertCtrl.create({
-      title: 'Wrong!',
+      title: 'Wrong',
       subTitle: `Number entered is invalid.`,
       buttons: ['OK']
     });
@@ -120,6 +120,7 @@ export class MybookPage {
     // Web service gets the request and removes the book
     .subscribe(response => {
       console.log(response);
+
     },
       (error) => {console.log('Problem accuired during book remove.');
                   this.showInvalidAlert()});

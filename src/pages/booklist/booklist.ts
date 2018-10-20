@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SubmitService } from '../../posts/app.service';
-import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
@@ -34,8 +33,7 @@ export class BooklistPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController, 
-              private submitService: SubmitService,
-              private _HTTP   	: HttpClient) {
+              private submitService: SubmitService) {
               this.getBookList();
 
   }
@@ -56,7 +54,7 @@ export class BooklistPage {
   //=============================================================================
   showInvalidSubAlert() {
     const invalidAlert = this.alertCtrl.create({
-      title: 'Wrong!',
+      title: 'Wrong',
       subTitle: `Subject entered is invalid.`,
       buttons: ['OK']
     });
@@ -68,12 +66,26 @@ export class BooklistPage {
   //=============================================================================
   showInvalidPriceAlert() {
     const invalidAlert = this.alertCtrl.create({
-      title: 'Wrong!',
+      title: 'Wrong',
       subTitle: `Price entered is invalid.`,
       buttons: ['OK']
     });
     invalidAlert.present();
   }
+
+  
+  //=============================================================================
+  // Method to show Help alert
+  //=============================================================================
+  showHelpAlert() {
+    const helpAlert = this.alertCtrl.create({
+      title: 'Help',
+      subTitle: `This is a list of all available books on the system. From here you can filter books according to Type, Subject and Price.`,
+      buttons: ['OK']
+    });
+    helpAlert.present();
+  }
+
 
   //=============================================================================
   // Method to pop up a filter alert
@@ -140,7 +152,7 @@ export class BooklistPage {
   showFilterType(){
     const confirmType = this.alertCtrl.create({
       title: "Type Filter",
-      message: "Select the TYPE of the book that you want to filter.",
+      message: "Select to view Advertisements or Requests.",
       buttons: [
       {
         // Advertisement Button with value = Advertisement
@@ -172,7 +184,7 @@ export class BooklistPage {
   showFilterSubjectPrompt(){
     const filterSprompt = this.alertCtrl.create({
           title: 'Subject Filter',
-          message: "Enter the SUBJECT CODE of the book that you want to filter.",
+          message: "Enter the SUBJECT CODE for the textbook you are searching for.",
           inputs: [{
           name: 'subject_code',
           placeholder: 'E.g. ITRW324'
@@ -206,7 +218,7 @@ export class BooklistPage {
   showFilterPricePrompt(){
     const filterPprompt = this.alertCtrl.create({
           title: 'Price Filter',
-          message: "Enter the maximum PRICE of the book that you want to filter.",
+          message: "Enter the maximum PRICE of the book that you are searching for.",
           inputs: [{
           name: 'book_price',
           type: 'number',
@@ -232,18 +244,6 @@ export class BooklistPage {
       ]
     });
     filterPprompt.present();
-  }
-
-  //=============================================================================
-  // Method to show Help alert
-  //=============================================================================
-  showHelpAlert() {
-    const helpAlert = this.alertCtrl.create({
-      title: 'Help!',
-      subTitle: `This is a list of all available books, you can filter book according Type, Subject and Code.`,
-      buttons: ['OK']
-    });
-    helpAlert.present();
   }
 
   //=============================================================================

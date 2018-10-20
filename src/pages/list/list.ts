@@ -5,7 +5,6 @@ import { MybookPage } from './../mybook/mybook';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BooklistPage } from '../booklist/booklist';
-import { SubmitService } from '../../posts/app.service';
 
 @IonicPage()
 @Component({
@@ -20,8 +19,7 @@ export class ListPage {
   //=============================================================================
 
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              private submitService: SubmitService) {}
+              public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPage');

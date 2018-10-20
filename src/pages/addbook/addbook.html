@@ -17,37 +17,37 @@
         <!-- Input for Book Name -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">Book Name</ion-label>
-          <ion-input class = "text-input" maxlength = "60" text-right type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
+          <ion-input class = "text-input" maxlength = "60" text-right required type="text" placeholder="E.g. Computer Networks" [(ngModel)]="bookAdd.book_name" name="book_name"></ion-input>
         </ion-item>
         
         <!-- Input for Edition -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">Edition</ion-label>
-          <ion-input maxlength = "40" text-right type="text" placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
+          <ion-input maxlength = "40" text-right type="text" required placeholder="E.g. 10th Edition" [(ngModel)]="bookAdd.book_edition" name="book_edition"></ion-input>
         </ion-item>
         
         <!-- Input for ISBN 10 -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">ISBN 10</ion-label>
-          <ion-input lengthmax = "10" maxlength = "10" text-right type="text" placeholder="10-Digits" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number"></ion-input>
+          <ion-input lengthmax = "10" maxlength = "10" text-right required type="text" placeholder="10-Digits or Leave 0" [(ngModel)]="bookAdd.book_isbn_10_number" name="book_isbn_10_number" #isbn10 = "ngModel"></ion-input>
         </ion-item>
 
         <!-- Input for ISNB 13 -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">ISBN 13</ion-label>
-          <ion-input maxlength = "13" text-right type="text" placeholder="13-Digits" [(ngModel)]="bookAdd.book_isbn_13_number" name="book_isbn_13_number"></ion-input>
+          <ion-input maxlength = "13" text-right type="text" required placeholder="13-Digits or Leave 0" [(ngModel)]="bookAdd.book_isbn_13_number" name="book_isbn_13_number"></ion-input>
         </ion-item>
       
         <!-- Input for Price -->
         <ion-item id = "mainGroupedClear"> 
           <ion-label color = "light">Price</ion-label>
-          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
+          <ion-input maxlength = "5" text-right type="text" required placeholder="E.g. 399.99" [(ngModel)]="bookAdd.book_price" name="book_price"></ion-input>
         </ion-item>
 
         <!-- Input for Type -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">Type</ion-label>
-          <ion-select [(ngModel)]="bookAdd.book_type" name="book_type">
+          <ion-select [(ngModel)]="bookAdd.book_type" required name="book_type">
             <ion-option label="Advertisement">Advertisement</ion-option>
             <ion-option label="Request">Request</ion-option>
           </ion-select>
@@ -55,21 +55,21 @@
 
         <!-- Input for Author -->
         <ion-item id = "mainGroupedClear">
-          <ion-label color = "light">Author</ion-label>
-          <ion-input maxlength = "40" text-right type="text" placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
+          <ion-label color = "light">Main Author</ion-label>
+          <ion-input maxlength = "40" text-right type="text" required placeholder="E.g. A.S Tanenbaum" [(ngModel)]="bookAdd.author_name" name="author_name"></ion-input>
         </ion-item>
       
         <!-- Input for Subject code -->
         <ion-item id = "mainGroupedClear">
           <ion-label color = "light">Subject Code</ion-label>
-          <ion-input maxlength = "7" text-right type="text" placeholder="E.g. ITRW322" autocapitalize=characters [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
+          <ion-input maxlength = "7" text-right type="text" required placeholder="E.g. ITRW322" autocapitalize=characters [(ngModel)]="bookAdd.subject_code" name="subject_code"></ion-input>
         </ion-item>
 
       </ion-list>
 
       <!-- Button for submitting the book details -->
       <div padding>
-        <button ion-button color="light" block round outline type="submit" icon-start>
+        <button ion-button color="light" block round outline type="submit" icon-start [disabled]="!b.valid">
           <ion-icon name="ios-create-outline"></ion-icon> 
         Add</button>
       </div>
