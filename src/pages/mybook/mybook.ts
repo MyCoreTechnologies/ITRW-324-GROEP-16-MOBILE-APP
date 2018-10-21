@@ -1,6 +1,7 @@
-// mybook.ts Methods
+//This file is used to store all methods and functionality that is used on 
+//the MyBook page of the mobile application.
 
-// Imports for mybook.ts
+//Imports that this page requires to operate correctly
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddbookPage } from '../addbook/addbook';
@@ -16,11 +17,11 @@ import { SubmitService } from '../../posts/app.service';
 
 export class MybookPage {
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Create Variable:
   // for book list received from the web service = books
   books;
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -28,21 +29,23 @@ export class MybookPage {
               private submitService: SubmitService) {
               this.getMyBookList()
   }
-
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for displaying if page is loaded
+  /////////////////////////////////////////////////////////////////////////////// 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MybookPage');
   }
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Method for going to AddBookPage
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   onToGoAdd(){
     this.navCtrl.push(AddbookPage);
   }
 
-  //=============================================================================
-  //Method for displaying a remove prompt
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for displaying a prompt to enter book number to remove book.
+  ///////////////////////////////////////////////////////////////////////////////
   showRemovePrompt(){
     // Constant variable for prompt alert with all information
     const prompt = this.alertCtrl.create({
@@ -77,16 +80,16 @@ export class MybookPage {
     prompt.present();
   }
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Method for removing the present page; going to the previous page.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   onGoToMenu(){
      this.navCtrl.pop();
   }
 
-  //=============================================================================
-  // Method for displaying the help alert message.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Alert Method for displaying the help alert message for myBooks.
+  ///////////////////////////////////////////////////////////////////////////////
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help',
@@ -96,9 +99,9 @@ export class MybookPage {
     helpAlert.present();
   }
 
-  //=============================================================================
-  // Alert method for displaying a invalid details error.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Alert method for displaying a message if book number is invalid
+  ///////////////////////////////////////////////////////////////////////////////
   showInvalidAlert() {
     const invalidAlert = this.alertCtrl.create({
       title: 'Wrong',
@@ -108,9 +111,12 @@ export class MybookPage {
     invalidAlert.present();
   }
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Removing book method
   // POST method to remove a book with the matching book number.
-  //=============================================================================
+  // Data send: Book number
+  // Data received: Successful or Unsuccessful
+  ///////////////////////////////////////////////////////////////////////////////
   postRemoveBook(data) {
     console.log(data);
 
@@ -126,9 +132,12 @@ export class MybookPage {
                   this.showInvalidAlert()});
     } 
 
-  //=============================================================================  
-  // get method for getting the MyBook list and displays the list.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////  
+  // Displaying user books method
+  // Get method for getting the MyBook list and displays the list.
+  // Data send: Valid Token
+  // Data received: Book information
+  ///////////////////////////////////////////////////////////////////////////////
   getMyBookList(){
 
     //Request is send to web service

@@ -1,6 +1,7 @@
-//addbook.ts Methods
+//This file is used to store all methods and functionality that is used on 
+//the AddBook page of the mobile application.
 
-//Imports for addbook.ts
+//Imports that this page requires to operate correctly
 import { SubmitService } from '../../posts/app.service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -14,21 +15,18 @@ import { AlertController } from 'ionic-angular';
 
 export class AddbookPage {
   
-  //=============================================================================
-  // Create variable:
-  // Values of book details added with input = bookAdd 
+  //////////////////////////////////////////////////////////////////////////////////
+  // Creation of the variable/s that is required to diaplay the book information 
   bookAdd = {};
-  //=============================================================================
+  /////////////////////////////////////////////////////////////////////////////////
   
   constructor(public navCtrl: NavController, 
               private submitService: SubmitService,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController) {}
 
-  }
-
-  //=============================================================================
-  // Alert method for displaying a invalid details error.
-  //=============================================================================
+  /////////////////////////////////////////////////////////////////////////////////
+  // Alert method is created for displaying an alert if invalid information is entered
+  /////////////////////////////////////////////////////////////////////////////////
   showInvalidAlert() {
     const invalidAlert = this.alertCtrl.create({
       title: 'Wrong',
@@ -38,12 +36,14 @@ export class AddbookPage {
     invalidAlert.present();
   }
 
-  //=============================================================================
+  /////////////////////////////////////////////////////////////////////////////////
+  // Add book Method
   // POST method to send entered book details to the web service
-  //=============================================================================
+  // Data send: Book information
+  //            Valid Token
+  // Data received: Successful or Unsuccessful
+  /////////////////////////////////////////////////////////////////////////////////
   postAddBook(form: NgForm ) {
-
-    console.log(form.value);
     // Request send to the web service
     this.submitService.postBookData(form.value)
 
@@ -52,16 +52,16 @@ export class AddbookPage {
       console.log(response);
       this.onGoToBackMyBooks();
     },
-      //When Wrong details are entered, a alert will appear.
+      //When Wrong details are entered, an alert will appear.
       (error) => {console.log('Problem accuired during book add.');
       this.showInvalidAlert()});
     } 
     
-    //=============================================================================
-    // Method to remove previous page; go back to previous page.
-    //=============================================================================
-    onGoToBackMyBooks(){
-      this.navCtrl.pop();
-    }
+  /////////////////////////////////////////////////////////////////////////////////
+  // Method to remove curent page and go back to previous page.
+  /////////////////////////////////////////////////////////////////////////////////
+  onGoToBackMyBooks(){
+    this.navCtrl.pop();
+  }
     
 }

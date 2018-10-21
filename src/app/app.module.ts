@@ -1,3 +1,6 @@
+// This is the mobile appilcation's main file.
+// Each page created must be imported and added 
+// here to be part of the app.
 import { InterceptorService } from './../posts/app.interceptor';
 import { HttpClientModule} from '@angular/common/http';
 import { SubmitService } from './../posts/app.service';

@@ -1,10 +1,13 @@
+//This file is used to store all methods and functionality that is used on 
+//the interceptor of the mobile application.
+
+//Imports that this file requires to operate correctly
 import { SubmitService } from './app.service';
 import { Injectable } from '@angular/core';
-import {
-    HttpRequest,
-    HttpHandler,
-    HttpEvent
-  } from '@angular/common/http';
+import { HttpRequest,
+         HttpHandler,
+         HttpEvent
+                    } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()

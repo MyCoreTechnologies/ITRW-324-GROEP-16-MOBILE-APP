@@ -11,6 +11,7 @@ export class MyApp {
   rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    // Auto generated code for splash screen on app startup.
     platform.ready().then(() => {
 
       statusBar.styleDefault();

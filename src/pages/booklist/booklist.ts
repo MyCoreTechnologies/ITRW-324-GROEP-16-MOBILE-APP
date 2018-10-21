@@ -1,6 +1,7 @@
-//booklist.ts Methods
+//This file is used to store all methods and functionality that is used on 
+//the BookList page of the mobile application.
 
-//Imports for booklist.ts
+//Imports that this page requires to operate correctly
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
@@ -14,7 +15,7 @@ import { SubmitService } from '../../posts/app.service';
 
 export class BooklistPage {
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Create Variables:
   // Filter popup open or not = filterRadioOpen
   // The option chosen in the filter popup = filterRadioResult
@@ -28,7 +29,7 @@ export class BooklistPage {
   // Request = reqData
   adData = `{"book_type": "Advertisement"}`;
   reqData = `{"book_type": "Request"}`;
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -38,20 +39,23 @@ export class BooklistPage {
 
   }
 
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for displaying when the page is loaded
+  /////////////////////////////////////////////////////////////////////////////// 
   ionViewDidLoad() : void{
     console.log('ionViewDidLoad BooklistPage');
   }
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Method to remove present page; going back to the previous page.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   onGoToMenu(){
     this.navCtrl.pop();
   }
 
-  //=============================================================================
-  // Method to show Help alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method to show alert if invalid subject code is entered.
+  ///////////////////////////////////////////////////////////////////////////////
   showInvalidSubAlert() {
     const invalidAlert = this.alertCtrl.create({
       title: 'Wrong',
@@ -61,9 +65,9 @@ export class BooklistPage {
     invalidAlert.present();
   }
 
-  //=============================================================================
-  // Method to show Help alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method to show alert if invalid price is entered
+  ///////////////////////////////////////////////////////////////////////////////
   showInvalidPriceAlert() {
     const invalidAlert = this.alertCtrl.create({
       title: 'Wrong',
@@ -74,22 +78,24 @@ export class BooklistPage {
   }
 
   
-  //=============================================================================
-  // Method to show Help alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method to show Help alert for book list.
+  ///////////////////////////////////////////////////////////////////////////////
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help',
-      subTitle: `This is a list of all available books on the system. From here you can filter books according to Type, Subject and Price.`,
+      subTitle: `This is a list of all available books on the system. From here you can filter books according to Type, Subject and Price. Remember to enter subject such as 'BMAN111'`,
       buttons: ['OK']
     });
     helpAlert.present();
   }
 
 
-  //=============================================================================
-  // Method to pop up a filter alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method to pop up a filter alert to select: Type
+  //                                            Subject Code
+  //                                            Price
+  ///////////////////////////////////////////////////////////////////////////////
   showFilter(){
     let alertFilter = this.alertCtrl.create();
     alertFilter.setTitle('Select a filter');
@@ -146,9 +152,9 @@ export class BooklistPage {
     });
   }
 
-  //=============================================================================
-  // Method for running a Type alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for running a Type alert to select: Advertisement OR Request
+  ///////////////////////////////////////////////////////////////////////////////
   showFilterType(){
     const confirmType = this.alertCtrl.create({
       title: "Type Filter",
@@ -178,9 +184,9 @@ export class BooklistPage {
     confirmType.present();
   }
 
-  //=============================================================================
-  // Method for running a Subject alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for running a Subject prompt to enter the subject code.
+  ///////////////////////////////////////////////////////////////////////////////
   showFilterSubjectPrompt(){
     const filterSprompt = this.alertCtrl.create({
           title: 'Subject Filter',
@@ -212,9 +218,9 @@ export class BooklistPage {
     filterSprompt.present();
   }
 
-  //=============================================================================
-  // Method for running a Price alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for running a Price prompt to enter the subject code.
+  ///////////////////////////////////////////////////////////////////////////////
   showFilterPricePrompt(){
     const filterPprompt = this.alertCtrl.create({
           title: 'Price Filter',
@@ -246,9 +252,13 @@ export class BooklistPage {
     filterPprompt.present();
   }
 
-  //=============================================================================
-  // POST method to filter the types of book list
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Filter by type method
+  // POST method to filter the types of book list.
+  // Data Send: Advertisement OR
+  //            Request
+  // Data Received: Filtered information by type
+  ///////////////////////////////////////////////////////////////////////////////
   postFilterTypeBook(data) {
     console.log(data);
     // request send to web service
@@ -265,9 +275,12 @@ export class BooklistPage {
       (error) => console.log('Problem accuired during type filter.'));
     } 
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Filter by subject method
   // POST method to filter the subject of book list
-  //=============================================================================
+  // Data Send: Subject code
+  // Data Received: Filtered information by Subject code
+  ///////////////////////////////////////////////////////////////////////////////
   postFilterSubjectBook(data) {
     console.log(data);
     // request send to web service
@@ -284,9 +297,12 @@ export class BooklistPage {
                   this.showInvalidSubAlert()});
     } 
 
-  //=============================================================================  
+  ///////////////////////////////////////////////////////////////////////////////  
+  // Filter by price method
   // POST method to filter the price of book list  
-  //=============================================================================
+  // Data Send: Price
+  // Data Received: Filtered information by price
+  ///////////////////////////////////////////////////////////////////////////////
   postFilterPriceBook(data) {
     console.log(data);
     // request send to web service
@@ -303,9 +319,12 @@ export class BooklistPage {
                   this.showInvalidPriceAlert()});
   }
   
-  //=============================================================================
-  // Get method to get list from the web service.
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Displaying all user books method
+  // Get method for getting the Book list and displays the list.
+  // Data send: Valid Token
+  // Data received: Book information
+  ///////////////////////////////////////////////////////////////////////////////
   getBookList(){
     //request send to web service.
     this.submitService.getBookListData()

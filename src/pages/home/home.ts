@@ -1,6 +1,7 @@
-//home.ts Methods
+//This file is used to store all methods and functionality that is used on 
+//the Home page of the mobile application.
 
-//Imports for home.ts
+//Imports that this page requires to operate correctly
 import { AlertController } from 'ionic-angular';
 import { SubmitService } from '../../posts/app.service';
 import { Component } from '@angular/core';
@@ -17,13 +18,13 @@ import { LoadingController } from "ionic-angular";
 //Start of Class: HomePage
 export class HomePage {
 
-  //=============================================================================
-  // Creating variable:
+  ///////////////////////////////////////////////////////////////////////////////
+  // Creating variables:
   // entered student login details to send to Webservice = loginData
   // For saving token to session storages = data
   loginData = {};
   data;
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   
   constructor(public navCtrl: NavController,
               private submitService: SubmitService,
@@ -33,16 +34,16 @@ export class HomePage {
 
   }
 
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   // Method for exiting application
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
   onExit(){
     this.platform.exitApp();
   }
 
-  //=============================================================================
-  // Method for creating a Timout alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for creating a Timout alert if server is not responding
+  ///////////////////////////////////////////////////////////////////////////////
   timeOut(){
     const timeOutAlert = this.alertCtrl.create({
       title: 'Timed Out!',
@@ -54,9 +55,9 @@ export class HomePage {
       console.log('Server not responding.')
   }
 
-  //=============================================================================
-  // Method for creating a Login alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Method for creating a Login alert if login details are incorrect
+  ///////////////////////////////////////////////////////////////////////////////
   loginAlert(){
     const loginAlert = this.alertCtrl.create({
       title: `Can't Login!`,
@@ -68,9 +69,14 @@ export class HomePage {
       console.log('Invalid login details.')
   }
 
-  //=============================================================================
-  // POST method for sending login details of student to web service
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Login method
+  // POST method for sending login details of student to web service.
+  // Data send: Student Number
+  //            Password
+  // Data Received: Successful - Token
+  //                Unsuccessful - Not found
+  ///////////////////////////////////////////////////////////////////////////////
   postSignIn(form: NgForm ) {
     console.log(form.value);
 
@@ -88,6 +94,8 @@ export class HomePage {
       if(sessionStorage.length < 1){
       load.dismiss();
       this.timeOut();
+      } else {
+      load.dismiss();
       }
     }, 15000);
     
@@ -125,9 +133,9 @@ export class HomePage {
                   load.dismiss(); this.loginAlert()});
   } 
   
-  //=============================================================================
-  // Create a method that can be called to display a help alert
-  //=============================================================================
+  ///////////////////////////////////////////////////////////////////////////////
+  // Create a method for displaying a help message.
+  ///////////////////////////////////////////////////////////////////////////////
   showHelpAlert() {
     const helpAlert = this.alertCtrl.create({
       title: 'Help',
